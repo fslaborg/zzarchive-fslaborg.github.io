@@ -1,4 +1,4 @@
-<!-- **************  FsLab banner  ************** -->
+﻿<!-- **************  FsLab banner  ************** -->
 <div class="banner-wrapper">
   <div id="fslab-banner" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -166,6 +166,10 @@
         <h2>Learn more <em>Videos and conference talks</em></h2>
         <ul>
           <li>
+            <a href="http://channel9.msdn.com/Events/dotnetConf/2015/The-F-Path-to-Data-Scripting-Nirvana">The F# Path to Data Scripting Nirvana</a> &nbsp; (Channel 9)<br />
+            This dotNetConf talk shows how to use FsLab together with <a href="http://www.m-brace.net/">M-Brace</a> for scalable data analysis, both locally and in the cloud.
+          </li>
+          <li>
             <a href="http://channel9.msdn.com/posts/Understanding-the-World-with-F">Understanding the World with F#</a> &nbsp; (Channel 9)<br />
             This lecture shows how to access JSON, CSV and World Bank data, combine and analyze the data and visualize the results.
           </li>
@@ -196,7 +200,7 @@
       </div>
     </div>
     <div class="row components">
-      <div class="col-xs-6">
+      <div class="col-md-6">
         <h3><span><i class="fa fa-database"></i></span> F# Data <em>First-class data access</em></h3>
         <ul>
           <li>Use language that understands external data sources</li>
@@ -205,7 +209,7 @@
         </ul>
         <a href="http://fsharp.github.io/FSharp.Data/" class="btn fst btn-primary" role="button">F# Data homepage</a>
       </div>
-      <div class="col-xs-6">
+      <div class="col-md-6">
         <h3><span><i class="fa fa-bars"></i></span> Deedle <em>Interactive data exploration</em></h3>
         <ul>
           <li>Data frame and series library inspired by pandas</li>
@@ -217,7 +221,7 @@
       </div>
     </div>
     <div class="row components">
-      <div class="col-xs-6">
+      <div class="col-md-6">
         <h3><span><i class="fa fa-rocket"></i></span> R Provider <em>Professional stats packages</em></h3>
         <ul>
           <li>Access over 6000 professional R packages</li>
@@ -226,7 +230,7 @@
         </ul>
         <a href="http://github.com/BlueMountainCapital/FSharpRProvider" class="btn fst btn-primary" role="button">R provider homepage</a>
       </div>
-      <div class="col-xs-6">
+      <div class="col-md-6">
         <h3><span><i class="fa fa-calculator"></i></span> Math.NET <em>Fast numerical calculations</em></h3>
         <ul>
           <li>Linear algebra, statistics and probability</li>
@@ -237,7 +241,7 @@
       </div>
     </div>
     <div class="row components">
-      <div class="col-xs-6">
+      <div class="col-md-6">
         <h3><span><i class="fa fa-flask"></i></span> FsLab <em>For integrated experience</em></h3>
         <ul>
           <li>One easy to install package with all you need</li>
@@ -247,7 +251,7 @@
         <a href="https://github.com/fslaborg/FsLab.Templates" class="btn fst btn-primary" role="button">FsLab templates</a>
         <a href="https://visualstudiogallery.msdn.microsoft.com/45373b36-2a4c-4b6a-b427-93c7a8effddb" class="btn btn-primary" role="button">Visual Studio template</a>
       </div>
-      <div class="col-xs-6">
+      <div class="col-md-6">
         <h3><span><i class="fa fa-code"></i></span> Literate F#<em>Produce LaTeX and HTML reports</em></h3>
         <ul>
           <li>Mix F# code and Markdown annotations in one file</li>
