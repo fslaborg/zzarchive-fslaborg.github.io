@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  @if (Title=="index") {
+    <title>FsLab - Data science tools</title>
+  } else {
+    <title>@Title - FsLab</title>
+  }
+  <meta name="description" content="@Description" />
+  <meta name="author" content="">
+  <script type='text/javascript' src='//www.google.com/jsapi'></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <!-- Custom styles for this template -->
+  <link href="/content/style.css" rel="stylesheet">
+  <link href="/styles/custom.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- **************  Navigation bar  ************** -->
+  @{ 
+    var url = Properties["page-source"].ToString(); 
+    var activePage = "index";
+    if (url.Contains("getting-started")) { activePage = "getting-started"; }
+  }
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">FsLab</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class='@(activePage=="index"?"active":"")'><a href="/">Home</a></li>
+          <li class='@(activePage=="getting-started"?"active":"")'><a href="/getting-started">Getting started</a></li>
+          <li><a href="/index.html#support">Training and support</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Documentation <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="http://http://fsharp.github.io/FSharp.Data/" class="external">F# Data</a></li>
+              <li><a href="http://bluemountaincapital.github.io/Deedle/" class="external">Deedle</a></li>
+              <li><a href="http://bluemountaincapital.github.io/FSharpRProvider/" class="external">R Type Provider</a></li>
+              <li><a href="http://numerics.mathdotnet.com/" class="external">Math.NET Numerics</a></li>
+              <li><a href="http://fsharp.github.io/FSharp.Charting/" class="external">F# Charting</a></li>
+            </ul>
+          </li>
+          <!--
+          <li class='@(activePage=="contributing"?"active":"")'><a href="#">Contributing</a></li>
+          <li class='@(activePage=="about"?"active":"")'><a href="#">About us</a></li>
+          -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  @if (activePage != "index") {
+    <div class="content-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            @RenderBody()
+          </div>
+          <div class="col-md-3">
+
+            <a href="www.fslab.org">
+              <img src="/img/logos/fslab.png" id="logo" />
+            </a>
+
+            <ul class="nav nav-list" id="menu">
+              <li class="nav-header">Documentation</li>
+              <li><a href="http://www.fslab.org">Home page</a></li>
+              <li><a href="/getting-started">Getting started</a></li>
+              <li class="divider"></li>
+              <li><a href="https://nuget.org/packages/FsLab">Get FsLab via NuGet</a></li>
+              <li><a href="http://github.com/fslaborg">FsLab on GitHub</a></li>
+              <li><a href="https://twitter.com/fslaborg">Follow us on Twitter</a></li>
+              <li><a href="http://stackoverflow.com/questions/tagged/fslab">Ask a question!</a></li>
+
+              <li class="nav-header">Documentation</li>
+              <li><a href="http://http://fsharp.github.io/FSharp.Data/" class="external">F# Data</a></li>
+              <li><a href="http://bluemountaincapital.github.io/Deedle/" class="external">Deedle</a></li>
+              <li><a href="http://bluemountaincapital.github.io/FSharpRProvider/" class="external">R Type Provider</a></li>
+              <li><a href="http://numerics.mathdotnet.com/" class="external">Math.NET Numerics</a></li>
+              <li><a href="http://fsharp.github.io/FSharp.Charting/" class="external">F# Charting</a></li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  } else {
+    <div>
+      @RenderBody()
+    </div>
+  }
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h3>About FsLab</h3>
+          <p>
+            FsLab brings together popular F# open-source libraries for data science.
+            It is maintained by <a href="http://twitter.com/tomaspetricek">@@tomaspetrcek</a>.
+          </p>
+          <ul>
+            <li>Follow <a href="http://twitter.com/fslaborg">@@fslaborg</a> for updates</li>
+            <li>Report issues on <a href="http://github.com/tpetricek/FsLab">GitHub</a></li>
+          </ul>
+          <h3>Support</h3>
+          <p>
+            If you need professional FsLab support or training,
+            get in touch with FsLab contributors at
+            <a href="http://fsharpworks.com">fsharpWorks</a>.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h3>FsLab contributors</h3>
+          <p>Component authors include leading F# contributors:</p>
+          <ul>
+            <li>Tomas Petricek | <a href="http://twitter.com/tomaspetricek">@@tomaspetricek</a></li>
+            <li>Gustavo Guerra | <a href="http://twitter.com/ovatsus">@@ovatsus</a></li>
+            <li>Christoph Ruegg | <a href="http://twitter.com/cdrnet">@@cdrnet</a></li>
+            <li>F# Works | <a href="http://twitter.com/fsharpworks">@@fsharpworks</a></li>
+            <li>BlueMountain Capital</li>
+          </ul>
+          <p>...and many others. For a complete list, check out the contributors of individual FsLab libraries.</p>
+        </div>
+        <div class="col-md-4">
+          <h3>About the F# language</h3>
+          <img src="/img/logos/fsharp.png" style="float:right;margin:0px 0px 20px 20px">
+          <p>
+            FsLab is built using the F# language, but
+            it is not affiliated to the F# Software Foundation.
+          </p>
+          <p>We love the foundation and we think you might too!</p>
+          <ul>
+            <li>Visit <a href="http://fsharp.org">F# web site</a> for more info</li>
+            <li><a href="http://foundation.fsharp.org">Join and help</a> the foundation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/lib/jquery.js"></script>
+  <script src="/lib/bootstrap.min.js"></script>
+  <script src="/lib/tips.js"></script>
+  <script>
+    $('#fslab-banner').carousel({
+      interval: 10000
+    });
+  </script>
+</body>
+</html>
