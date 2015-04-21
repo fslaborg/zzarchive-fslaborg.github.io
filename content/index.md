@@ -28,7 +28,7 @@
                 integration and use rich <strong>visualization and reporting</strong>.
               </p>
               <p class="ta-ml">
-                <a href="/get-fslab" class="btn btn-primary" role="button">Download</a>
+                <a href="/download" class="btn btn-primary" role="button">Download</a>
                 <a href="/getting-started" class="btn btn-primary" role="button">Getting started</a>
               </p>
             </div>
