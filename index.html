@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FsLab - Data Science and Machine Learning with F#</title>
-  <meta name="description" content="##Summary##" />
+    <title>FsLab - Data science and machine learning with F#</title>
+  <meta name="description" content="N/A" />
   <meta name="author" content="">
   <script type='text/javascript' src='//www.google.com/jsapi'></script>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
@@ -17,6 +17,7 @@
   <![endif]-->
   <!-- Custom styles for this template -->
   <link href="/content/style.css" rel="stylesheet">
+  <link href="/styles/deedle.css" rel="stylesheet">
   <link href="/styles/custom.css" rel="stylesheet">
 </head>
 <body>
@@ -36,9 +37,9 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class='active'><a href="/">Home</a></li>
+          <li class=''><a href="/download">Download</a></li>
           <li class=''><a href="/getting-started">Getting started</a></li>
-          <li><a href="/#support">Training and support</a></li>
+          <li><a href="/#support">Training &amp; support</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Documentation <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
@@ -50,6 +51,13 @@
             </ul>
           </li>
           <!--
+          <li class='dropdown '>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learn <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Talks</a></li>
+              <li><a href="#">Articles</a></li>
+            </ul>
+          </li>
           <li class=''><a href="#">Contributing</a></li>
           <li class=''><a href="#">About us</a></li>
           -->
@@ -58,8 +66,7 @@
     </div>
   </nav>
 
-    <div>
-      
+  
 <!-- **************  FsLab banner  ************** -->
 <div class="banner-wrapper">
   <div id="fslab-banner" class="carousel slide" data-ride="carousel">
@@ -90,8 +97,8 @@
                 integration and use rich <strong>visualization and reporting</strong>.
               </p>
               <p class="ta-ml">
+                <a href="/get-fslab" class="btn btn-primary" role="button">Download</a>
                 <a href="/getting-started" class="btn btn-primary" role="button">Getting started</a>
-                <a href="#libraries" class="btn btn-primary" role="button">Documentation</a>
               </p>
             </div>
           </div>
@@ -267,7 +274,7 @@
         <ul>
           <li>Use language that understands external data sources</li>
           <li>Access JSON, XML, CSV, HTML and WorldBank</li>
-          <li>Get auto-completion based on sample a document</li>
+          <li>Get auto-completion based on a sample document</li>
         </ul>
         <a href="http://fsharp.github.io/FSharp.Data/" class="btn fst btn-primary" role="button">F# Data homepage</a>
       </div>
@@ -290,7 +297,7 @@
           <li>Pass data frames and time-series to R easily</li>
           <li>Get auto-completion on R functions &amp; parameters</li>
         </ul>
-        <a href="http://github.com/BlueMountainCapital/FSharpRProvider" class="btn fst btn-primary" role="button">R provider homepage</a>
+        <a href="http://bluemountaincapital.github.io/FSharpRProvider" class="btn fst btn-primary" role="button">R provider homepage</a>
       </div>
       <div class="col-md-6">
         <h3><span><i class="fa fa-calculator"></i></span> Math.NET <em>Fast numerical calculations</em></h3>
@@ -330,13 +337,12 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <img src="/img/logos/fsharpdata.png" />
-        <img src="/img/logos/deedle.png" />
-        <img src="/img/logos/rprovider.png" />
-        <img src="/img/logos/fsformatting.png" />
-        <img src="/img/logos/mathnet.png" />
-        <img src="/img/logos/fslab.png" />
-        <img src="/img/logos/charting.png" />
+        <a href="http://fsharp.github.io/FSharp.Data/"><img src="/img/logos/fsharpdata.png" /></a>
+        <a href="http://bluemountaincapital.github.io/Deedle/"><img src="/img/logos/deedle.png" /></a>
+        <a href="http://bluemountaincapital.github.io/FSharpRProvider"><img src="/img/logos/rprovider.png" /></a>
+        <a href="http://tpetricek.github.io/FSharp.Formatting"><img src="/img/logos/fsformatting.png" /></a>
+        <a href="http://numerics.mathdotnet.com"><img src="/img/logos/mathnet.png" /></a>
+        <a href="http://www.fslab.org"><img src="/img/logos/fslab.png" /></a>
       </div>
     </div>
   </div>
@@ -353,8 +359,8 @@
         <p>
           Consultancy partners including
           <a href="http://fsharpworks.com/">fsharpWorks</a>
-          contribute to FsLab and provide training, support and 
-          other services. 
+          contribute to FsLab and provide training, support and
+          other services.
         </p>
         <ul>
           <li>
@@ -384,7 +390,6 @@
 </div>
 
 
-    </div>
 
   <footer>
     <div class="container">
@@ -392,8 +397,8 @@
         <div class="col-md-4">
           <h3>About FsLab</h3>
           <p>
-            FsLab brings together popular F# open-source libraries for data science.
-            It is maintained by <a href="http://twitter.com/tomaspetricek">@tomaspetrcek</a>.
+            FsLab is a collection of popular F# open-source libraries for data science
+            maintained by <a href="http://twitter.com/tomaspetricek">@tomaspetricek</a> &amp; contributors.
           </p>
           <ul>
             <li>Follow <a href="http://twitter.com/fslaborg">@fslaborg</a> for updates</li>

@@ -4,9 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Getting started with FsLab
- - FsLab</title>
-  <meta name="description" content="##Summary##" />
+    <title>Getting started with FsLab - FsLab</title>
+  <meta name="description" content="N/A" />
   <meta name="author" content="">
   <script type='text/javascript' src='//www.google.com/jsapi'></script>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
@@ -18,6 +17,7 @@
   <![endif]-->
   <!-- Custom styles for this template -->
   <link href="/content/style.css" rel="stylesheet">
+  <link href="/styles/deedle.css" rel="stylesheet">
   <link href="/styles/custom.css" rel="stylesheet">
 </head>
 <body>
@@ -37,9 +37,9 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class=''><a href="/">Home</a></li>
+          <li class=''><a href="/download">Download</a></li>
           <li class='active'><a href="/getting-started">Getting started</a></li>
-          <li><a href="/#support">Training and support</a></li>
+          <li><a href="/#support">Training &amp; support</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Documentation <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
@@ -51,6 +51,13 @@
             </ul>
           </li>
           <!--
+          <li class='dropdown '>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learn <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Talks</a></li>
+              <li><a href="#">Articles</a></li>
+            </ul>
+          </li>
           <li class=''><a href="#">Contributing</a></li>
           <li class=''><a href="#">About us</a></li>
           -->
@@ -59,55 +66,56 @@
     </div>
   </nav>
 
-    <div class="content-wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9">
-            
-<h1><a name="Getting-started-with-FsLab" class="anchor" href="#Getting-started-with-FsLab">Getting started with FsLab</a></h1>
+  
+<div class="first-wrapper banner-spaced banner-wrapper"><div class="container">
 
-<p>In this page, you'll learn some basic information about getting started
-with FsLab. This page will not give you a lot of information about the 
-FsLab libraries. For that, refer to the individual libraries (see the 
-"Documentation" tab in the navigation bar). Instead, you'll learn:</p>
+<h1><a name="Tutorial-Getting-started-with-FsLab" class="anchor" href="#Tutorial-Getting-started-with-FsLab">Tutorial <em>Getting started with FsLab</em></a></h1>
+
+<img src="/img/carousel/cc.png" style="width:180px;float:right;margin:0px 5% 20px 3%" />
+
+<p>In this tutorial, you'll learn how to get started with FsLab. This walkthrough will not give
+you detailed information about the FsLab libraries. For that, refer to the individual libraries
+(see the "Documentation" tab in the navigation bar), but it quickly demonstrates how FsLab
+simplifies three steps of typical data science workflow:</p>
 
 <ul>
-<li>How to create FsLab project</li>
-<li>Where to get FsLab templates</li>
-<li>How to write your first script</li>
+<li><strong>Access data</strong> in a safe and easy way with type providers</li>
+<li><strong>Analyze data</strong> using powerful series and data frame libraries</li>
+<li><strong>Visualize results</strong> produce elegant charts and reports</li>
 </ul>
 
-<h2><a name="Using-FsLab-templates" class="anchor" href="#Using-FsLab-templates">Using FsLab templates</a></h2>
+</div></div>
 
-<p>The easiest way to get started is to copy one of the templates that are 
-available from the <a href="http://github.com/fslaborg/FsLab.Templates">FsLab templates</a>
-repository. The templates work with Xamarin Studio, Visual Studio and other
-F# editors.</p>
+<div class="content-wrapper"><div class="container">
 
-<p>The templates use <a href="http://fsprojects.github.io/Paket">Paket</a> for dependency 
-management. When you copy one of the templates, you'll need to run <code>paket install</code>
-to get the dependencies. This should happen automatically when you build the 
-project (e.g. using "Ctrl+Shift+B" in Visual Studio). However, you can also
-run the following from command line (drop <code>mono</code> and use backslash on Windows):</p>
+<div class="row"><div class="col-md-9">
 
-<table class="pre"><tr><td><pre lang="text">mono .paket/paket-bootstrap.exe
-mono .paket/paket.exe install
-</pre></td></tr></table>
+<h2><a name="Introduction" class="anchor" href="#Introduction">Introduction</a></h2>
 
-<p>This will download all the packages and also create <code>paket.lock</code> file with the 
-version information. Once the packages are downloaded, you can open the <code>Tutorial.fsx</code>
-script, which starts with something like this:</p>
+<p>The demo shows all steps of the typical data science cycle and you'll see how FsLab
+helps with all of the three steps. The example compares university enrollment in
+European Union and Czech Republic - we'll start by getting data about the countries
+from the World Bank, then we'll do a simple exploratory data analysis and we'll
+finish with a little visualization.</p>
+
+<h2><a name="Accessing-data-with-type-providers" class="anchor" href="#Accessing-data-with-type-providers">Accessing data with type providers</a></h2>
+
+<p>First, you need to <a href="/download">download FsLab template or package</a>. Then, we
+reference the libraries that we need. Here, we use <code>FSharp.Data</code> for data access,
+<code>Deedle</code> for interactive data exploration and <code>Foogle</code> for visualization:</p>
 
 <table class="pre"><tr><td class="lines"><pre class="fssnip">
 <span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
 <span class="l">4: </span>
+<span class="l">5: </span>
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
 <span class="prep">#load</span> <span class="s">&quot;packages/FsLab/FsLab.fsx&quot;</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">FsLab</span>
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">Foogle</span>
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">Deedle</span>
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">FSharp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">Data</span>
 </pre>
@@ -115,127 +123,7 @@ script, which starts with something like this:</p>
 </tr>
 </table>
 
-<p>The tempalates are designed to be used from F# Interactive. Select a couple of lines
-of code and use "Alt+Enter" (in Visual Studio), "Ctrl+Enter" (in Xamarin Studio) or
-other command to send the code to F# Interactive.</p>
-
-<h3><a name="FsLab-Basic-template" class="anchor" href="#FsLab-Basic-template">FsLab Basic template</a></h3>
-
-<p>The basic FsLab template is a minimal sample containing a tutorial and Paket references
-as described above. The template works with Xamarin Studio, Visual Studio or via command line.</p>
-
-<ul>
-<li>Download <a href="https://github.com/fslaborg/FsLab.Templates/archive/basic.zip">FsLab basic template</a></li>
-</ul>
-
-<h3><a name="FsLab-Journal-template-Visual-Studio" class="anchor" href="#FsLab-Journal-template-Visual-Studio">FsLab Journal template (Visual Studio)</a></h3>
-
-<p>The FsLab Journal template contains everything as described above, but also adds the
-ability to generate HTML and LaTeX reports from your literate scripts. Currently, this
-is only available for Visual Studio. Cross-platform version is coming soon!</p>
-
-<ul>
-<li>Download <a href="https://github.com/fslaborg/FsLab.Templates/archive/journal-vs.zip">FsLab Journal template</a></li>
-<li>Install <a href="https://visualstudiogallery.msdn.microsoft.com/45373b36-2a4c-4b6a-b427-93c7a8effddb">Visual Studio template</a></li>
-</ul>
-
-<h2><a name="Referencing-FsLab-via-Paket-or-NuGet" class="anchor" href="#Referencing-FsLab-via-Paket-or-NuGet">Referencing FsLab via Paket or NuGet</a></h2>
-
-<p>It is equally easy to install FsLab using NuGet or using Paket. We recommend
-using <a href="http://fsprojects.github.io/Paket">Paket</a>. This is a bit more work at
-the beginning, but it will save you time when updating to new versions later!</p>
-
-<h3><a name="Referencing-FsLab-using-NuGet" class="anchor" href="#Referencing-FsLab-using-NuGet">Referencing FsLab using NuGet</a></h3>
-
-<p>FsLab is <a href="https://www.nuget.org/packages/FsLab/">available on NuGet</a> as <code>FsLab</code>.
-To use it directly, create a new project (F# Tutorial is a good start in Visual
-Studio and Xamarin Studio). Then add refernece to the FsLab NuGet package and
-wait until all components are downloaded.</p>
-
-<p>Finally add a new script file, say <code>Tutorial.fsx</code> and load <code>FsLab.fsx</code> using the
-following command (the version will differ, so you'll have to check the created
-<code>packages</code> directory; sometimes you also need <code>../packages</code> instead).</p>
-
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l">1: </span>
-<span class="l">2: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="prep">#load</span> <span class="s">&quot;packages/FsLab.0.1.4/FsLab.fsx&quot;</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 5)" onmouseover="showTip(event, 'fs1', 5)" class="i">FsLab</span>
-</pre>
-</td>
-</tr>
-</table>
-
-<h3><a name="Referencing-FsLab-using-Paket" class="anchor" href="#Referencing-FsLab-using-Paket">Referencing FsLab using Paket</a></h3>
-
-<p>When referencing FsLab using Paket, you'll need to <a href="https://github.com/fsprojects/Paket/releases/latest">download the latest version of
-Paket</a> and create a file called
-<code>paket.dependencies</code> with the following contents:</p>
-
-<table class="pre"><tr><td><pre lang="text">source https://nuget.org/api/v2
-
-nuget FsLab
-</pre></td></tr></table>
-
-<p>This specifies that Paket should install the <code>FsLab</code> package for you. Then
-run the following command (drop <code>mono</code> on Windows):</p>
-
-<table class="pre"><tr><td><pre lang="text">mono paket.exe install
-</pre></td></tr></table>
-
-<p>The typical usage is to put <code>paket.exe</code> into a sub-folder called <code>.paket</code>, but this
-is completely up to you. Paket will drop the version numbers from folder names, so
-you can reference FsLab as follows in your scripts:</p>
-
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l">1: </span>
-<span class="l">2: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="prep">#load</span> <span class="s">&quot;packages/FsLab/FsLab.fsx&quot;</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 6)" onmouseover="showTip(event, 'fs1', 6)" class="i">FsLab</span>
-</pre>
-</td>
-</tr>
-</table>
-
-<h2><a name="Writing-FsLab-scripts" class="anchor" href="#Writing-FsLab-scripts">Writing FsLab scripts</a></h2>
-
-<img src="/img/carousel/cc.png" style="width:150px;float:right;margin:0px 20px 20px 20px" />
-
-<p>This guide is not trying to give a comprehensive overview of all the libraries you'll
-find in the FsLab package, but let's have a look at least at one simple example that 
-shows some of the interesting features.</p>
-
-<p>The demo shows all steps of the typical data science cycle and you'll see how FsLab
-helps with all of the three steps. We'll get some data from the WorldBank using type
-providers, do a simple analysis and create a little visualization.</p>
-
-<h3><a name="Accessing-data-with-type-providers" class="anchor" href="#Accessing-data-with-type-providers">Accessing data with type providers</a></h3>
-
-<p>First, let's reference the libraries that we'll be using. Here, we use <code>FSharp.Data</code> for 
-data access, <code>Deedle</code> for interactive data exploration and <code>Foogle</code> for visualization:</p>
-
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs5', 7)" onmouseover="showTip(event, 'fs5', 7)" class="i">Foogle</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 8)" onmouseover="showTip(event, 'fs2', 8)" class="i">Deedle</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 9)" onmouseover="showTip(event, 'fs3', 9)" class="i">FSharp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 10)" onmouseover="showTip(event, 'fs4', 10)" class="i">Data</span>
-</pre>
-</td>
-</tr>
-</table>
-
-<p>Next, we'll connect to the WorldBank and access indicators for the European Union and
+<p>Next, we connect to the World Bank and access indicators for the European Union and
 Czech Republic. When doing this yourself, change the names to your country and a region
 or country nearby!</p>
 
@@ -246,23 +134,23 @@ or country nearby!</p>
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs6', 11)" onmouseover="showTip(event, 'fs6', 11)" class="i">wb</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs7', 12)" onmouseover="showTip(event, 'fs7', 12)" class="t">WorldBankData</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 13)" onmouseover="showTip(event, 'fs8', 13)" class="f">GetDataContext</span>()
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs9', 14)" onmouseover="showTip(event, 'fs9', 14)" class="i">cz</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs6', 15)" onmouseover="showTip(event, 'fs6', 15)" class="i">wb</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 16)" onmouseover="showTip(event, 'fs10', 16)" class="i">Countries</span><span class="o">.</span><span class="i">``Czech Republic``</span><span class="o">.</span><span class="i">Indicators</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 17)" onmouseover="showTip(event, 'fs11', 17)" class="i">eu</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs6', 18)" onmouseover="showTip(event, 'fs6', 18)" class="i">wb</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 19)" onmouseover="showTip(event, 'fs10', 19)" class="i">Countries</span><span class="o">.</span><span class="i">``European Union``</span><span class="o">.</span><span class="i">Indicators</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="i">wb</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="t">WorldBankData</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="f">GetDataContext</span>()
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs8', 8)" onmouseover="showTip(event, 'fs8', 8)" class="i">cz</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs5', 9)" onmouseover="showTip(event, 'fs5', 9)" class="i">wb</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs9', 10)" onmouseover="showTip(event, 'fs9', 10)" class="i">Countries</span><span class="o">.</span><span class="i">``Czech Republic``</span><span class="o">.</span><span class="i">Indicators</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 11)" onmouseover="showTip(event, 'fs10', 11)" class="i">eu</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs5', 12)" onmouseover="showTip(event, 'fs5', 12)" class="i">wb</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs9', 13)" onmouseover="showTip(event, 'fs9', 13)" class="i">Countries</span><span class="o">.</span><span class="i">``European Union``</span><span class="o">.</span><span class="i">Indicators</span>
 </pre>
 </td>
 </tr>
 </table>
 
-<p>When using advanced F# editor (Xamarin, Visual Studio, Emacs with F# mode, etc.), you'll
-get auto-completion after typing <code>wb.Countries.</code> - this is the type provider magic that 
+<p>When using advanced F# editor (Xamarin, Visual Studio, Emacs with F# mode etc.), you'll
+get auto-completion after typing <code>wb.Countries.</code> - this is the type provider magic that
 makes it easy to access external data sources.</p>
 
-<h3><a name="Interactive-data-exploration" class="anchor" href="#Interactive-data-exploration">Interactive data exploration</a></h3>
+<h2><a name="Interactive-data-exploration" class="anchor" href="#Interactive-data-exploration">Interactive data exploration</a></h2>
 
-<p>You can similarly easily find interesting indicators. For example, let's say we want to
-compare university enrollment in CZ and EU. To do that, we just pick the relevant indicator
-and use the <code>series</code> function to create a Deedle time-series:</p>
+<p>Just like we can easily find countries and regions, we can easily get interesting indicators
+about them. To compare university enrollment in Czech Republic and European Union, we just pick
+the relevant indicator and use the <code>series</code> function to create a Deedle time-series:</p>
 
 <table class="pre"><tr><td class="lines"><pre class="fssnip">
 <span class="l">1: </span>
@@ -270,16 +158,17 @@ and use the <code>series</code> function to create a Deedle time-series:</p>
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 20)" onmouseover="showTip(event, 'fs12', 20)" class="i">czschool</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs13', 21)" onmouseover="showTip(event, 'fs13', 21)" class="f">series</span> <span onmouseout="hideTip(event, 'fs9', 22)" onmouseover="showTip(event, 'fs9', 22)" class="i">cz</span><span class="o">.</span><span class="i">``School enrollment, tertiary (% gross)``</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 23)" onmouseover="showTip(event, 'fs14', 23)" class="i">euschool</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs13', 24)" onmouseover="showTip(event, 'fs13', 24)" class="f">series</span> <span onmouseout="hideTip(event, 'fs11', 25)" onmouseover="showTip(event, 'fs11', 25)" class="i">eu</span><span class="o">.</span><span class="i">``School enrollment, tertiary (% gross)``</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 14)" onmouseover="showTip(event, 'fs11', 14)" class="i">czschool</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 15)" onmouseover="showTip(event, 'fs12', 15)" class="f">series</span> <span onmouseout="hideTip(event, 'fs8', 16)" onmouseover="showTip(event, 'fs8', 16)" class="i">cz</span><span class="o">.</span><span class="i">``School enrollment, tertiary (% gross)``</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 17)" onmouseover="showTip(event, 'fs13', 17)" class="i">euschool</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs12', 18)" onmouseover="showTip(event, 'fs12', 18)" class="f">series</span> <span onmouseout="hideTip(event, 'fs10', 19)" onmouseover="showTip(event, 'fs10', 19)" class="i">eu</span><span class="o">.</span><span class="i">``School enrollment, tertiary (% gross)``</span>
 </pre>
 </td>
 </tr>
 </table>
 
-<p>When using Deedle, you can apply numerical operations to entire time-series. Here, we 
+<p>When using Deedle, you can apply numerical operations to an entire time-series. Here, we
 calculate the difference between CZ and EU data. Deedle automatically aligns the time-series
-and matches corresponding years. We then pick the 5 years with largest differences:</p>
+and matches corresponding years, so you do not have to worry about aligning data from multiple
+sources. We then pick the 5 years with largest differences:</p>
 
 <table class="pre"><tr><td class="lines"><pre class="fssnip">
 <span class="l">1: </span>
@@ -289,21 +178,55 @@ and matches corresponding years. We then pick the 5 years with largest differenc
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-<span onmouseout="hideTip(event, 'fs15', 26)" onmouseover="showTip(event, 'fs15', 26)" class="f">abs</span> (<span onmouseout="hideTip(event, 'fs12', 27)" onmouseover="showTip(event, 'fs12', 27)" class="i">czschool</span> <span class="o">-</span> <span onmouseout="hideTip(event, 'fs14', 28)" onmouseover="showTip(event, 'fs14', 28)" class="i">euschool</span>)
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 29)" onmouseover="showTip(event, 'fs16', 29)" class="t">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 30)" onmouseover="showTip(event, 'fs17', 30)" class="f">sort</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 31)" onmouseover="showTip(event, 'fs16', 31)" class="t">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs18', 32)" onmouseover="showTip(event, 'fs18', 32)" class="f">rev</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 33)" onmouseover="showTip(event, 'fs16', 33)" class="t">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs19', 34)" onmouseover="showTip(event, 'fs19', 34)" class="f">take</span> <span class="n">5</span>
+<span onmouseout="hideTip(event, 'fs14', 20)" onmouseover="showTip(event, 'fs14', 20)" class="f">abs</span> (<span onmouseout="hideTip(event, 'fs11', 21)" onmouseover="showTip(event, 'fs11', 21)" class="i">czschool</span> <span class="o">-</span> <span onmouseout="hideTip(event, 'fs13', 22)" onmouseover="showTip(event, 'fs13', 22)" class="i">euschool</span>)
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs15', 23)" onmouseover="showTip(event, 'fs15', 23)" class="t">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs16', 24)" onmouseover="showTip(event, 'fs16', 24)" class="f">sort</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs15', 25)" onmouseover="showTip(event, 'fs15', 25)" class="t">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs17', 26)" onmouseover="showTip(event, 'fs17', 26)" class="f">rev</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs15', 27)" onmouseover="showTip(event, 'fs15', 27)" class="t">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs18', 28)" onmouseover="showTip(event, 'fs18', 28)" class="f">take</span> <span class="n">5</span>
 </pre>
 </td>
 </tr>
 </table>
 
-<h3><a name="Visualizing-results" class="anchor" href="#Visualizing-results">Visualizing results</a></h3>
+<div class="deedleseries">
+
+
+<table>
+<thead>
+<tr class="header">
+<th><p>Keys</p></th>
+<th><p>1999</p></th>
+<th><p>1998</p></th>
+<th><p>2001</p></th>
+<th><p>2000</p></th>
+<th><p>1997</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>Values</p></td>
+<td><p>22.79</p></td>
+<td><p>22.22</p></td>
+<td><p>22.12</p></td>
+<td><p>21.59</p></td>
+<td><p>21.34</p></td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+
+
+<p>With the FsLab journal template, you can easily embed the results of a computation into a
+report. In fact, this page has been generated using exactly this mechanism!</p>
+
+<h2><a name="Visualizing-results" class="anchor" href="#Visualizing-results">Visualizing results</a></h2>
 
 <p>As a final step, we're going to create a chart that shows the two time series
-side-by-side. The following example uses the Foogle chart library, which is a 
+side-by-side. The following example uses the Foogle chart library, which is a
 lightweight wrapper over Google chart. When used in F# Interactive, this opens
-a web browser with the chart, but we can also embed it into this page:</p>
+a web browser with the chart, but we can also embed it into this page, just like
+the table above:</p>
 
 <table class="pre"><tr><td class="lines"><pre class="fssnip">
 <span class="l">1: </span>
@@ -315,11 +238,11 @@ a web browser with the chart, but we can also embed it into this page:</p>
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-<span onmouseout="hideTip(event, 'fs20', 35)" onmouseover="showTip(event, 'fs20', 35)" class="t">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs21', 36)" onmouseover="showTip(event, 'fs21', 36)" class="f">LineChart</span>
- ([ <span class="k">for</span> <span onmouseout="hideTip(event, 'fs22', 37)" onmouseover="showTip(event, 'fs22', 37)" class="i">y</span> <span class="k">in</span> <span class="n">1985</span> <span class="o">..</span> <span class="n">2012</span> <span class="k">-&gt;</span>
-     <span onmouseout="hideTip(event, 'fs23', 38)" onmouseover="showTip(event, 'fs23', 38)" class="f">string</span> <span onmouseout="hideTip(event, 'fs22', 39)" onmouseover="showTip(event, 'fs22', 39)" class="i">y</span>, 
-       [ <span onmouseout="hideTip(event, 'fs9', 40)" onmouseover="showTip(event, 'fs9', 40)" class="i">cz</span><span class="o">.</span><span class="i">``School enrollment, tertiary (% gross)``</span><span class="o">.</span>[<span onmouseout="hideTip(event, 'fs22', 41)" onmouseover="showTip(event, 'fs22', 41)" class="i">y</span>] 
-         <span onmouseout="hideTip(event, 'fs11', 42)" onmouseover="showTip(event, 'fs11', 42)" class="i">eu</span><span class="o">.</span><span class="i">``School enrollment, tertiary (% gross)``</span><span class="o">.</span>[<span onmouseout="hideTip(event, 'fs22', 43)" onmouseover="showTip(event, 'fs22', 43)" class="i">y</span>] ] ],
+<span onmouseout="hideTip(event, 'fs19', 29)" onmouseover="showTip(event, 'fs19', 29)" class="t">Chart</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs20', 30)" onmouseover="showTip(event, 'fs20', 30)" class="f">LineChart</span>
+ ([ <span class="k">for</span> <span onmouseout="hideTip(event, 'fs21', 31)" onmouseover="showTip(event, 'fs21', 31)" class="i">y</span> <span class="k">in</span> <span class="n">1985</span> <span class="o">..</span> <span class="n">2012</span> <span class="k">-&gt;</span>
+     <span onmouseout="hideTip(event, 'fs22', 32)" onmouseover="showTip(event, 'fs22', 32)" class="f">string</span> <span onmouseout="hideTip(event, 'fs21', 33)" onmouseover="showTip(event, 'fs21', 33)" class="i">y</span>,
+       [ <span onmouseout="hideTip(event, 'fs8', 34)" onmouseover="showTip(event, 'fs8', 34)" class="i">cz</span><span class="o">.</span><span class="i">``School enrollment, tertiary (% gross)``</span><span class="o">.</span>[<span onmouseout="hideTip(event, 'fs21', 35)" onmouseover="showTip(event, 'fs21', 35)" class="i">y</span>]
+         <span onmouseout="hideTip(event, 'fs10', 36)" onmouseover="showTip(event, 'fs10', 36)" class="i">eu</span><span class="o">.</span><span class="i">``School enrollment, tertiary (% gross)``</span><span class="o">.</span>[<span onmouseout="hideTip(event, 'fs21', 37)" onmouseover="showTip(event, 'fs21', 37)" class="i">y</span>] ] ],
   <span class="i">Labels</span> <span class="o">=</span> [<span class="s">&quot;CZ&quot;</span>; <span class="s">&quot;EU&quot;</span>])
 </pre>
 </td>
@@ -344,7 +267,7 @@ a web browser with the chart, but we can also embed it into this page:</p>
 at a demo that shows how FsLab simplifies the three tasks of working with data.</p>
 
 <ul>
-<li><p>Type providers make it easier to access data and help you avoid issues 
+<li><p>Type providers make it easier to access data and help you avoid issues
 by integrating external data (like the World Bank) into the language and
 into your editor.</p></li>
 <li><p>The Deedle library provides rich and easy-to-use tools for interactive data
@@ -354,59 +277,58 @@ with R).</p></li>
 HTML or LaTeX output.</li>
 </ul>
 
-<div class="tip" id="fs1">namespace FsLab</div>
+</div><div class="col-md-3">
+
+<a href="www.fslab.org">
+  <img src="/img/logos/fslab.png" id="logo" />
+</a>
+
+<ul class="nav nav-list" id="menu">
+  <li class="nav-header">Documentation</li>
+  <li><a href="http://www.fslab.org">Home page</a></li>
+  <li><a href="/getting-started">Getting started</a></li>
+  <li class="divider"></li>
+  <li><a href="https://nuget.org/packages/FsLab">Get FsLab via NuGet</a></li>
+  <li><a href="http://github.com/fslaborg">FsLab on GitHub</a></li>
+  <li><a href="https://twitter.com/fslaborg">Follow us on Twitter</a></li>
+  <li><a href="http://stackoverflow.com/questions/tagged/fslab">Ask a question!</a></li>
+
+  <li class="nav-header">Documentation</li>
+  <li><a href="http://fsharp.github.io/FSharp.Data/" class="external">F# Data</a></li>
+  <li><a href="http://bluemountaincapital.github.io/Deedle/" class="external">Deedle</a></li>
+  <li><a href="http://bluemountaincapital.github.io/FSharpRProvider/" class="external">R Type Provider</a></li>
+  <li><a href="http://numerics.mathdotnet.com/" class="external">Math.NET Numerics</a></li>
+  <li><a href="http://fsharp.github.io/FSharp.Charting/" class="external">F# Charting</a></li>
+</ul>
+
+
+</div></div>
+
+</div></div>
+
+<div class="tip" id="fs1">namespace Foogle</div>
 <div class="tip" id="fs2">namespace Deedle</div>
 <div class="tip" id="fs3">namespace FSharp</div>
 <div class="tip" id="fs4">namespace FSharp.Data</div>
-<div class="tip" id="fs5">namespace Foogle</div>
-<div class="tip" id="fs6">val wb : WorldBankData.ServiceTypes.WorldBankDataService<br /><br />Full name: Index.wb</div>
-<div class="tip" id="fs7">type WorldBankData =<br />&#160;&#160;static member GetDataContext : unit -&gt; WorldBankDataService<br />&#160;&#160;nested type ServiceTypes<br /><br />Full name: FSharp.Data.WorldBankData<br /><em><br /><br />&lt;summary&gt;Typed representation of WorldBank data. See http://www.worldbank.org for terms and conditions.&lt;/summary&gt;</em></div>
-<div class="tip" id="fs8">WorldBankData.GetDataContext() : WorldBankData.ServiceTypes.WorldBankDataService</div>
-<div class="tip" id="fs9">val cz : WorldBankData.ServiceTypes.Indicators<br /><br />Full name: Index.cz</div>
-<div class="tip" id="fs10">property WorldBankData.ServiceTypes.WorldBankDataService.Countries: WorldBankData.ServiceTypes.Countries</div>
-<div class="tip" id="fs11">val eu : WorldBankData.ServiceTypes.Indicators<br /><br />Full name: Index.eu</div>
-<div class="tip" id="fs12">val czschool : Series&lt;int,float&gt;<br /><br />Full name: Index.czschool</div>
-<div class="tip" id="fs13">val series : observations:seq&lt;&#39;a * &#39;b&gt; -&gt; Series&lt;&#39;a,&#39;b&gt; (requires equality)<br /><br />Full name: Deedle.FSharpSeriesExtensions.series</div>
-<div class="tip" id="fs14">val euschool : Series&lt;int,float&gt;<br /><br />Full name: Index.euschool</div>
-<div class="tip" id="fs15">val abs : value:&#39;T -&gt; &#39;T (requires member Abs)<br /><br />Full name: Microsoft.FSharp.Core.Operators.abs</div>
-<div class="tip" id="fs16">Multiple items<br />module Series<br /><br />from Deedle<br /><br />--------------------<br />type Series =<br />&#160;&#160;static member ofNullables : values:seq&lt;Nullable&lt;&#39;a0&gt;&gt; -&gt; Series&lt;int,&#39;a0&gt; (requires default constructor and value type and &#39;a0 :&gt; ValueType)<br />&#160;&#160;static member ofObservations : observations:seq&lt;&#39;a0 * &#39;a1&gt; -&gt; Series&lt;&#39;a0,&#39;a1&gt; (requires equality)<br />&#160;&#160;static member ofOptionalObservations : observations:seq&lt;&#39;K * &#39;a1 option&gt; -&gt; Series&lt;&#39;K,&#39;a1&gt; (requires equality)<br />&#160;&#160;static member ofValues : values:seq&lt;&#39;a0&gt; -&gt; Series&lt;int,&#39;a0&gt;<br /><br />Full name: Deedle.FSharpSeriesExtensions.Series<br /><br />--------------------<br />type Series&lt;&#39;K,&#39;V (requires equality)&gt; =<br />&#160;&#160;interface IFsiFormattable<br />&#160;&#160;interface ISeries&lt;&#39;K&gt;<br />&#160;&#160;new : pairs:seq&lt;KeyValuePair&lt;&#39;K,&#39;V&gt;&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;new : keys:&#39;K [] * values:&#39;V [] -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;new : keys:seq&lt;&#39;K&gt; * values:seq&lt;&#39;V&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;new : index:IIndex&lt;&#39;K&gt; * vector:IVector&lt;&#39;V&gt; * vectorBuilder:IVectorBuilder * indexBuilder:IIndexBuilder -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;member After : lowerExclusive:&#39;K -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;member Aggregate : aggregation:Aggregation&lt;&#39;K&gt; * observationSelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,KeyValuePair&lt;&#39;TNewKey,OptionalValue&lt;&#39;R&gt;&gt;&gt; -&gt; Series&lt;&#39;TNewKey,&#39;R&gt; (requires equality)<br />&#160;&#160;member Aggregate : aggregation:Aggregation&lt;&#39;K&gt; * keySelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;TNewKey&gt; * valueSelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,OptionalValue&lt;&#39;R&gt;&gt; -&gt; Series&lt;&#39;TNewKey,&#39;R&gt; (requires equality)<br />&#160;&#160;member AsyncMaterialize : unit -&gt; Async&lt;Series&lt;&#39;K,&#39;V&gt;&gt;<br />&#160;&#160;...<br /><br />Full name: Deedle.Series&lt;_,_&gt;<br /><br />--------------------<br />new : pairs:seq&lt;System.Collections.Generic.KeyValuePair&lt;&#39;K,&#39;V&gt;&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />new : keys:seq&lt;&#39;K&gt; * values:seq&lt;&#39;V&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />new : keys:&#39;K [] * values:&#39;V [] -&gt; Series&lt;&#39;K,&#39;V&gt;<br />new : index:Indices.IIndex&lt;&#39;K&gt; * vector:IVector&lt;&#39;V&gt; * vectorBuilder:Vectors.IVectorBuilder * indexBuilder:Indices.IIndexBuilder -&gt; Series&lt;&#39;K,&#39;V&gt;</div>
-<div class="tip" id="fs17">val sort : series:Series&lt;&#39;K,&#39;V&gt; -&gt; Series&lt;&#39;K,&#39;V&gt; (requires equality and comparison)<br /><br />Full name: Deedle.Series.sort</div>
-<div class="tip" id="fs18">val rev : series:Series&lt;&#39;K,&#39;T&gt; -&gt; Series&lt;&#39;K,&#39;T&gt; (requires equality)<br /><br />Full name: Deedle.Series.rev</div>
-<div class="tip" id="fs19">val take : count:int -&gt; series:Series&lt;&#39;K,&#39;T&gt; -&gt; Series&lt;&#39;K,&#39;T&gt; (requires equality)<br /><br />Full name: Deedle.Series.take</div>
-<div class="tip" id="fs20">type Chart =<br />&#160;&#160;static member GeoChart : data:seq&lt;string * #value * #value&gt; * ?Labels:string list * ?Region:string * ?DisplayMode:DisplayMode -&gt; FoogleChart<br />&#160;&#160;static member GeoChart : data:seq&lt;string * #value&gt; * ?Label:string * ?Region:string * ?DisplayMode:DisplayMode -&gt; FoogleChart<br />&#160;&#160;static member LineChart : data:seq&lt;string * #value list&gt; * ?Labels:string list * ?CurveType:CurveType -&gt; FoogleChart<br />&#160;&#160;static member LineChart : data:seq&lt;string * #value&gt; * ?Label:string * ?CurveType:CurveType -&gt; FoogleChart<br />&#160;&#160;static member PieChart : data:seq&lt;string * #value&gt; * ?Label:string * ?PieHole:float -&gt; FoogleChart<br />&#160;&#160;static member WithColorAxis : ?MinValue:float * ?MaxValue:float * ?Values:seq&lt;float&gt; * ?Colors:seq&lt;Color&gt; -&gt; (FoogleChart -&gt; FoogleChart)<br />&#160;&#160;static member WithOutput : ?Engine:Engine -&gt; (FoogleChart -&gt; FoogleChart)<br />&#160;&#160;static member WithPie : ?PieHole:float -&gt; (FoogleChart -&gt; FoogleChart)<br />&#160;&#160;static member WithTitle : ?Title:string -&gt; (FoogleChart -&gt; FoogleChart)<br /><br />Full name: Foogle.Chart</div>
-<div class="tip" id="fs21">static member Chart.LineChart : data:seq&lt;string * #value list&gt; * ?Labels:string list * ?CurveType:LineChart.CurveType -&gt; FoogleChart<br />static member Chart.LineChart : data:seq&lt;string * #value&gt; * ?Label:string * ?CurveType:LineChart.CurveType -&gt; FoogleChart</div>
-<div class="tip" id="fs22">val y : int</div>
-<div class="tip" id="fs23">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = System.String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
+<div class="tip" id="fs5">val wb : WorldBankData.ServiceTypes.WorldBankDataService<br /><br />Full name: Index.wb</div>
+<div class="tip" id="fs6">type WorldBankData =<br />&#160;&#160;static member GetDataContext : unit -&gt; WorldBankDataService<br />&#160;&#160;nested type ServiceTypes<br /><br />Full name: FSharp.Data.WorldBankData<br /><em><br /><br />&lt;summary&gt;Typed representation of WorldBank data. See http://www.worldbank.org for terms and conditions.&lt;/summary&gt;</em></div>
+<div class="tip" id="fs7">WorldBankData.GetDataContext() : WorldBankData.ServiceTypes.WorldBankDataService</div>
+<div class="tip" id="fs8">val cz : WorldBankData.ServiceTypes.Indicators<br /><br />Full name: Index.cz</div>
+<div class="tip" id="fs9">property WorldBankData.ServiceTypes.WorldBankDataService.Countries: WorldBankData.ServiceTypes.Countries</div>
+<div class="tip" id="fs10">val eu : WorldBankData.ServiceTypes.Indicators<br /><br />Full name: Index.eu</div>
+<div class="tip" id="fs11">val czschool : Series&lt;int,float&gt;<br /><br />Full name: Index.czschool</div>
+<div class="tip" id="fs12">val series : observations:seq&lt;&#39;a * &#39;b&gt; -&gt; Series&lt;&#39;a,&#39;b&gt; (requires equality)<br /><br />Full name: Deedle.FSharpSeriesExtensions.series</div>
+<div class="tip" id="fs13">val euschool : Series&lt;int,float&gt;<br /><br />Full name: Index.euschool</div>
+<div class="tip" id="fs14">val abs : value:&#39;T -&gt; &#39;T (requires member Abs)<br /><br />Full name: Microsoft.FSharp.Core.Operators.abs</div>
+<div class="tip" id="fs15">Multiple items<br />module Series<br /><br />from Deedle<br /><br />--------------------<br />type Series =<br />&#160;&#160;static member ofNullables : values:seq&lt;Nullable&lt;&#39;a0&gt;&gt; -&gt; Series&lt;int,&#39;a0&gt; (requires default constructor and value type and &#39;a0 :&gt; ValueType)<br />&#160;&#160;static member ofObservations : observations:seq&lt;&#39;a0 * &#39;a1&gt; -&gt; Series&lt;&#39;a0,&#39;a1&gt; (requires equality)<br />&#160;&#160;static member ofOptionalObservations : observations:seq&lt;&#39;K * &#39;a1 option&gt; -&gt; Series&lt;&#39;K,&#39;a1&gt; (requires equality)<br />&#160;&#160;static member ofValues : values:seq&lt;&#39;a0&gt; -&gt; Series&lt;int,&#39;a0&gt;<br /><br />Full name: Deedle.FSharpSeriesExtensions.Series<br /><br />--------------------<br />type Series&lt;&#39;K,&#39;V (requires equality)&gt; =<br />&#160;&#160;interface IFsiFormattable<br />&#160;&#160;interface ISeries&lt;&#39;K&gt;<br />&#160;&#160;new : pairs:seq&lt;KeyValuePair&lt;&#39;K,&#39;V&gt;&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;new : keys:&#39;K [] * values:&#39;V [] -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;new : keys:seq&lt;&#39;K&gt; * values:seq&lt;&#39;V&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;new : index:IIndex&lt;&#39;K&gt; * vector:IVector&lt;&#39;V&gt; * vectorBuilder:IVectorBuilder * indexBuilder:IIndexBuilder -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;member After : lowerExclusive:&#39;K -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;member Aggregate : aggregation:Aggregation&lt;&#39;K&gt; * observationSelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,KeyValuePair&lt;&#39;TNewKey,OptionalValue&lt;&#39;R&gt;&gt;&gt; -&gt; Series&lt;&#39;TNewKey,&#39;R&gt; (requires equality)<br />&#160;&#160;member Aggregate : aggregation:Aggregation&lt;&#39;K&gt; * keySelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;TNewKey&gt; * valueSelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,OptionalValue&lt;&#39;R&gt;&gt; -&gt; Series&lt;&#39;TNewKey,&#39;R&gt; (requires equality)<br />&#160;&#160;member AsyncMaterialize : unit -&gt; Async&lt;Series&lt;&#39;K,&#39;V&gt;&gt;<br />&#160;&#160;...<br /><br />Full name: Deedle.Series&lt;_,_&gt;<br /><br />--------------------<br />new : pairs:seq&lt;System.Collections.Generic.KeyValuePair&lt;&#39;K,&#39;V&gt;&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />new : keys:seq&lt;&#39;K&gt; * values:seq&lt;&#39;V&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />new : keys:&#39;K [] * values:&#39;V [] -&gt; Series&lt;&#39;K,&#39;V&gt;<br />new : index:Indices.IIndex&lt;&#39;K&gt; * vector:IVector&lt;&#39;V&gt; * vectorBuilder:Vectors.IVectorBuilder * indexBuilder:Indices.IIndexBuilder -&gt; Series&lt;&#39;K,&#39;V&gt;</div>
+<div class="tip" id="fs16">val sort : series:Series&lt;&#39;K,&#39;V&gt; -&gt; Series&lt;&#39;K,&#39;V&gt; (requires equality and comparison)<br /><br />Full name: Deedle.Series.sort</div>
+<div class="tip" id="fs17">val rev : series:Series&lt;&#39;K,&#39;T&gt; -&gt; Series&lt;&#39;K,&#39;T&gt; (requires equality)<br /><br />Full name: Deedle.Series.rev</div>
+<div class="tip" id="fs18">val take : count:int -&gt; series:Series&lt;&#39;K,&#39;T&gt; -&gt; Series&lt;&#39;K,&#39;T&gt; (requires equality)<br /><br />Full name: Deedle.Series.take</div>
+<div class="tip" id="fs19">type Chart =<br />&#160;&#160;static member GeoChart : data:seq&lt;string * #value * #value&gt; * ?Labels:string list * ?Region:string * ?DisplayMode:DisplayMode -&gt; FoogleChart<br />&#160;&#160;static member GeoChart : data:seq&lt;string * #value&gt; * ?Label:string * ?Region:string * ?DisplayMode:DisplayMode -&gt; FoogleChart<br />&#160;&#160;static member LineChart : data:seq&lt;string * #value list&gt; * ?Labels:string list * ?CurveType:CurveType -&gt; FoogleChart<br />&#160;&#160;static member LineChart : data:seq&lt;string * #value&gt; * ?Label:string * ?CurveType:CurveType -&gt; FoogleChart<br />&#160;&#160;static member PieChart : data:seq&lt;string * #value&gt; * ?Label:string * ?PieHole:float -&gt; FoogleChart<br />&#160;&#160;static member WithColorAxis : ?MinValue:float * ?MaxValue:float * ?Values:seq&lt;float&gt; * ?Colors:seq&lt;Color&gt; -&gt; (FoogleChart -&gt; FoogleChart)<br />&#160;&#160;static member WithOutput : ?Engine:Engine -&gt; (FoogleChart -&gt; FoogleChart)<br />&#160;&#160;static member WithPie : ?PieHole:float -&gt; (FoogleChart -&gt; FoogleChart)<br />&#160;&#160;static member WithTitle : ?Title:string -&gt; (FoogleChart -&gt; FoogleChart)<br /><br />Full name: Foogle.Chart</div>
+<div class="tip" id="fs20">static member Chart.LineChart : data:seq&lt;string * #value list&gt; * ?Labels:string list * ?CurveType:LineChart.CurveType -&gt; FoogleChart<br />static member Chart.LineChart : data:seq&lt;string * #value&gt; * ?Label:string * ?CurveType:LineChart.CurveType -&gt; FoogleChart</div>
+<div class="tip" id="fs21">val y : int</div>
+<div class="tip" id="fs22">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = System.String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
 
-          </div>
-          <div class="col-md-3">
-
-            <a href="www.fslab.org">
-              <img src="/img/logos/fslab.png" id="logo" />
-            </a>
-
-            <ul class="nav nav-list" id="menu">
-              <li class="nav-header">Documentation</li>
-              <li><a href="http://www.fslab.org">Home page</a></li>
-              <li><a href="/getting-started">Getting started</a></li>
-              <li class="divider"></li>
-              <li><a href="https://nuget.org/packages/FsLab">Get FsLab via NuGet</a></li>
-              <li><a href="http://github.com/fslaborg">FsLab on GitHub</a></li>
-              <li><a href="https://twitter.com/fslaborg">Follow us on Twitter</a></li>
-              <li><a href="http://stackoverflow.com/questions/tagged/fslab">Ask a question!</a></li>
-
-              <li class="nav-header">Documentation</li>
-              <li><a href="http://fsharp.github.io/FSharp.Data/" class="external">F# Data</a></li>
-              <li><a href="http://bluemountaincapital.github.io/Deedle/" class="external">Deedle</a></li>
-              <li><a href="http://bluemountaincapital.github.io/FSharpRProvider/" class="external">R Type Provider</a></li>
-              <li><a href="http://numerics.mathdotnet.com/" class="external">Math.NET Numerics</a></li>
-              <li><a href="http://fsharp.github.io/FSharp.Charting/" class="external">F# Charting</a></li>
-            </ul>
-
-          </div>
-        </div>
-      </div>
-    </div>
 
   <footer>
     <div class="container">
@@ -414,8 +336,8 @@ HTML or LaTeX output.</li>
         <div class="col-md-4">
           <h3>About FsLab</h3>
           <p>
-            FsLab brings together popular F# open-source libraries for data science.
-            It is maintained by <a href="http://twitter.com/tomaspetricek">@tomaspetrcek</a>.
+            FsLab is a collection of popular F# open-source libraries for data science
+            maintained by <a href="http://twitter.com/tomaspetricek">@tomaspetricek</a> &amp; contributors.
           </p>
           <ul>
             <li>Follow <a href="http://twitter.com/fslaborg">@fslaborg</a> for updates</li>
