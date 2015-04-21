@@ -16,6 +16,7 @@ open Fake.ReleaseNotesHelper
 open System
 open System.IO
 open FSharp.Literate
+open FSharp.Markdown
 open Suave
 open Suave.Web
 open Suave.Http
@@ -28,15 +29,22 @@ open Suave.Http.Files
 let githubLink = "http://github.com/fslaborg/fslaborg.github.io"
 let publishBranch = "master"
 let info =
-  [ "project-name", "##ProjectName##"
-    "project-author", "##Author##"
-    "project-summary", "##Summary##"
-    "project-github", githubLink
-    "project-nuget", "http://nuget.org/packages/##ProjectName##" ]
+  [ "project-name", "N/A"; "project-author", "N/A"; "project-summary", "N/A"; 
+    "project-github", githubLink; "project-nuget", "N/A" ]
 
 // --------------------------------------------------------------------------------------
 // Building documentation using F# Formatting
 // --------------------------------------------------------------------------------------
+
+// Create FSI evaluator for handling FsLab docs
+#load "FsiMock.fs"
+#load "packages/FsLab/FsLab.fsx"
+#load "Formatters.fs"
+let fsiEvaluator1 = FsiEvaluator() 
+let fsiEvaluator = FsLab.Formatters.wrapFsiEvaluator fsiEvaluator1 "." (System.IO.Path.Combine(__SOURCE_DIRECTORY__,"output")) "G4"
+fsiEvaluator1.EvaluationFailed.Add(fun e ->
+  traceImportant <| sprintf "Evaluation failed: %s" e.StdErr
+)
 
 // Paths with template/source/output locations
 let content    = __SOURCE_DIRECTORY__ @@ "content"
@@ -73,22 +81,58 @@ let layoutRoots =
   [ templates; formatting @@ "templates"
     formatting @@ "templates/reference" ]
 
+let customizeDocument (ctx:ProcessingContext) (doc:LiterateDocument) =
+  // Find the first <hr /> element and treat the part before as a banner
+  let pars = doc.Paragraphs |> Array.ofSeq
+  let optBreak = pars |> Array.tryFindIndex (function HorizontalRule _ -> true | _ -> false)
+  let banner, rest = 
+    match optBreak with 
+    | None -> [||], pars
+    | Some idx -> pars.[.. idx-1], pars.[idx+1 ..]
+  let isSpecialPage = match rest.[0] with InlineBlock _ -> true | _ -> false
+  let isIndexPage = doc.SourceFile = Path.GetFullPath(content @@ "index.md")
+
+  let newPars = 
+    [ // On index page, we keep everything unchanged
+      if isIndexPage then yield! pars else
+
+      // If the page has banner, then emit banner inside .banner-wrapper
+      if banner <> [||] then
+        yield InlineBlock """<div class="first-wrapper banner-spaced banner-wrapper"><div class="container">"""
+        yield! banner
+        yield InlineBlock "</div></div>"
+        yield InlineBlock """<div class="content-wrapper"><div class="container">"""
+      else
+        yield InlineBlock """<div class="first-wrapper content-wrapper"><div class="container">"""
+      
+      if isSpecialPage then
+        // If the page starts with HTML, it needs to define its own rows/columns
+        yield! rest
+      else 
+        // By default, we create content blokc and add right panel in another column
+        yield InlineBlock """<div class="row"><div class="col-md-9">"""
+        yield! rest
+        yield InlineBlock """</div><div class="col-md-3">"""
+        yield InlineBlock (File.ReadAllText(templates @@ "rightpanel.html"))
+        yield InlineBlock "</div></div>"
+
+      yield InlineBlock "</div></div>" ]
+  doc.With(newPars)
+
 // Build documentation from `fsx` and `md` files in `content`
 let buildDocumentation () =
-  let subdirs = Directory.EnumerateDirectories(content, "*", SearchOption.AllDirectories)
-  for dir in Seq.append [content] subdirs do
-    let sub = if dir.Length > content.Length then dir.Substring(content.Length + 1) else "."
-    Literate.ProcessDirectory
-      ( dir, docTemplate, output @@ sub, replacements = ("root", "/")::info,
-        layoutRoots = layoutRoots,
-        ?assemblyReferences = references,
-        generateAnchors = true )
+  Literate.ProcessDirectory
+    ( content, docTemplate, output, replacements = ("root", "/")::info,
+      layoutRoots = layoutRoots, ?assemblyReferences = references,
+      generateAnchors = true, processRecursive = true, 
+      fsiEvaluator = fsiEvaluator, customizeDocument = customizeDocument )
 
 let retryCall f = 
   let rec loop n = 
     try f()
     with e ->
       if n = 0 then printfn "%A" e else 
+        printfn "Error: %s" e.Message
         printfn "Waiting 1s before retrying: %d" n 
         System.Threading.Thread.Sleep(1000)
         loop (n-1)
@@ -99,7 +143,7 @@ let retryCall f =
 // --------------------------------------------------------------------------------------
 
 Target "Clean" (fun _ ->
-    CleanDirs ["output"]
+    CleanDirs [__SOURCE_DIRECTORY__ @@ "output"]
 )
 
 Target "Generate" (fun _ ->

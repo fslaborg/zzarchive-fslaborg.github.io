@@ -5,14 +5,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   @if (Title=="index") {
-    <title>FsLab - Data Science and Machine Learning with F#</title>
+    <title>FsLab - Data science and machine learning with F#</title>
   } else {
-    <title>@Title - FsLab</title>
+    <title>@(System.Text.RegularExpressions.Regex.Split(Title, "<[^>]*>")[1]) - FsLab</title>
   }
   <meta name="description" content="@Description" />
   <meta name="author" content="">
   <script type='text/javascript' src='//www.google.com/jsapi'></script>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/lib/bootstrap.min.css" rel="stylesheet">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -21,15 +22,17 @@
   <![endif]-->
   <!-- Custom styles for this template -->
   <link href="/content/style.css" rel="stylesheet">
+  <link href="/styles/deedle.css" rel="stylesheet">
   <link href="/styles/custom.css" rel="stylesheet">
 </head>
 <body>
 
   <!-- **************  Navigation bar  ************** -->
-  @{ 
-    var url = Properties["page-source"].ToString(); 
+  @{
+    var url = Properties["page-source"].ToString();
     var activePage = "index";
     if (url.Contains("getting-started")) { activePage = "getting-started"; }
+    if (url.Contains("download")) { activePage = "download"; }
   }
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -45,8 +48,9 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li class='@(activePage=="index"?"active":"")'><a href="/">Home</a></li>
-          <li class='@(activePage=="getting-started"?"active":"")'><a href="/getting-started">Getting started</a></li>
-          <li><a href="/#support">Training and support</a></li>
+          <li class='@(activePage=="download"?"active":"")'><a href="/download">Download</a></li>
+          <li class='@(activePage=="getting-started"?"active":"")'><a href="/getting-started">Tutorial</a></li>
+          <li><a href="/#support">Training &amp; support</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Documentation <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
@@ -58,6 +62,13 @@
             </ul>
           </li>
           <!--
+          <li class='dropdown @(activePage=="learning"?"active":"")'>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Learn <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Talks</a></li>
+              <li><a href="#">Articles</a></li>
+            </ul>
+          </li>
           <li class='@(activePage=="contributing"?"active":"")'><a href="#">Contributing</a></li>
           <li class='@(activePage=="about"?"active":"")'><a href="#">About us</a></li>
           -->
@@ -66,46 +77,7 @@
     </div>
   </nav>
 
-  @if (activePage != "index") {
-    <div class="content-wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9">
-            @RenderBody()
-          </div>
-          <div class="col-md-3">
-
-            <a href="www.fslab.org">
-              <img src="/img/logos/fslab.png" id="logo" />
-            </a>
-
-            <ul class="nav nav-list" id="menu">
-              <li class="nav-header">Documentation</li>
-              <li><a href="http://www.fslab.org">Home page</a></li>
-              <li><a href="/getting-started">Getting started</a></li>
-              <li class="divider"></li>
-              <li><a href="https://nuget.org/packages/FsLab">Get FsLab via NuGet</a></li>
-              <li><a href="http://github.com/fslaborg">FsLab on GitHub</a></li>
-              <li><a href="https://twitter.com/fslaborg">Follow us on Twitter</a></li>
-              <li><a href="http://stackoverflow.com/questions/tagged/fslab">Ask a question!</a></li>
-
-              <li class="nav-header">Documentation</li>
-              <li><a href="http://fsharp.github.io/FSharp.Data/" class="external">F# Data</a></li>
-              <li><a href="http://bluemountaincapital.github.io/Deedle/" class="external">Deedle</a></li>
-              <li><a href="http://bluemountaincapital.github.io/FSharpRProvider/" class="external">R Type Provider</a></li>
-              <li><a href="http://numerics.mathdotnet.com/" class="external">Math.NET Numerics</a></li>
-              <li><a href="http://fsharp.github.io/FSharp.Charting/" class="external">F# Charting</a></li>
-            </ul>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  } else {
-    <div>
-      @RenderBody()
-    </div>
-  }
+  @RenderBody()
 
   <footer>
     <div class="container">
@@ -113,8 +85,8 @@
         <div class="col-md-4">
           <h3>About FsLab</h3>
           <p>
-            FsLab brings together popular F# open-source libraries for data science.
-            It is maintained by <a href="http://twitter.com/tomaspetricek">@@tomaspetrcek</a>.
+            FsLab is a collection of popular F# open-source libraries for data science
+            maintained by <a href="http://twitter.com/tomaspetricek">@@tomaspetricek</a> &amp; contributors.
           </p>
           <ul>
             <li>Follow <a href="http://twitter.com/fslaborg">@@fslaborg</a> for updates</li>

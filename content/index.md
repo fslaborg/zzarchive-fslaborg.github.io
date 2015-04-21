@@ -28,8 +28,8 @@
                 integration and use rich <strong>visualization and reporting</strong>.
               </p>
               <p class="ta-ml">
+                <a href="/get-fslab" class="btn btn-primary" role="button">Download</a>
                 <a href="/getting-started" class="btn btn-primary" role="button">Getting started</a>
-                <a href="#libraries" class="btn btn-primary" role="button">Documentation</a>
               </p>
             </div>
           </div>
@@ -205,7 +205,7 @@
         <ul>
           <li>Use language that understands external data sources</li>
           <li>Access JSON, XML, CSV, HTML and WorldBank</li>
-          <li>Get auto-completion based on sample a document</li>
+          <li>Get auto-completion based on a sample document</li>
         </ul>
         <a href="http://fsharp.github.io/FSharp.Data/" class="btn fst btn-primary" role="button">F# Data homepage</a>
       </div>
@@ -228,7 +228,7 @@
           <li>Pass data frames and time-series to R easily</li>
           <li>Get auto-completion on R functions &amp; parameters</li>
         </ul>
-        <a href="http://github.com/BlueMountainCapital/FSharpRProvider" class="btn fst btn-primary" role="button">R provider homepage</a>
+        <a href="http://bluemountaincapital.github.io/FSharpRProvider" class="btn fst btn-primary" role="button">R provider homepage</a>
       </div>
       <div class="col-md-6">
         <h3><span><i class="fa fa-calculator"></i></span> Math.NET <em>Fast numerical calculations</em></h3>
@@ -268,13 +268,12 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <img src="/img/logos/fsharpdata.png" />
-        <img src="/img/logos/deedle.png" />
-        <img src="/img/logos/rprovider.png" />
-        <img src="/img/logos/fsformatting.png" />
-        <img src="/img/logos/mathnet.png" />
-        <img src="/img/logos/fslab.png" />
-        <img src="/img/logos/charting.png" />
+        <a href="http://fsharp.github.io/FSharp.Data/"><img src="/img/logos/fsharpdata.png" /></a>
+        <a href="http://bluemountaincapital.github.io/Deedle/"><img src="/img/logos/deedle.png" /></a>
+        <a href="http://bluemountaincapital.github.io/FSharpRProvider"><img src="/img/logos/rprovider.png" /></a>
+        <a href="http://tpetricek.github.io/FSharp.Formatting"><img src="/img/logos/fsformatting.png" /></a>
+        <a href="http://numerics.mathdotnet.com"><img src="/img/logos/mathnet.png" /></a>
+        <a href="http://www.fslab.org"><img src="/img/logos/fslab.png" /></a>
       </div>
     </div>
   </div>
@@ -291,8 +290,8 @@
         <p>
           Consultancy partners including
           <a href="http://fsharpworks.com/">fsharpWorks</a>
-          contribute to FsLab and provide training, support and 
-          other services. 
+          contribute to FsLab and provide training, support and
+          other services.
         </p>
         <ul>
           <li>
