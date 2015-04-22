@@ -40,7 +40,7 @@ project (e.g. using "Ctrl+Shift+B" in Visual Studio). You can also use
 the command line (drop `mono` and use backslash on Windows):
 
     [lang=text]
-    mono .paket/paket-bootstrap.exe
+    mono .paket/paket.bootstrapper.exe
     mono .paket/paket.exe install
 
 This downloads the packages and creates `paket.lock` file with the version information.
