@@ -123,7 +123,7 @@
         <h2><span><i class="fa fa-clock-o" style="left:9px"></i></span> Production-ready</h2>
         <p>
           Once you're done with the initial data analysis, you can turn your code
-          into production-quality impoementation without rewriting it.
+          into production-quality implementation without rewriting it.
         </p>
       </div>
       <div class="col-xs-12 col-md-4 col-sm-6">
