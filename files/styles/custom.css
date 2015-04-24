@@ -477,7 +477,8 @@ footer h3
   background:transparent;
 }
 
-.content-wrapper .col-md-9 li
+.content-wrapper .col-md-9 li,
+.content-wrapper .col-md-6 li
 {
   font-size:12pt;
   margin-top:5px;
