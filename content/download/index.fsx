@@ -92,7 +92,7 @@ the beginning, but it will save you time when updating to new versions later!
 <a href="https://www.nuget.org/packages/FsLab/" class="btn btn-primary" role="button">
   <strong>View FsLab on NuGet</strong></a>
   <a href="https://www.nuget.org/packages/FsLab/" class="btn btn-primary" role="button">
-    <strong>View FsLab.Runner on NuGet</strong></a>
+    <strong>FsLab.Runner on NuGet</strong></a>
 </div>
 
 ### Referencing FsLab using NuGet
