@@ -60,7 +60,7 @@
           <div class="row">
             <div class="col-sm-5">
               <p>
-                You'll never need to lookup column names or country codes again again! <strong>Type providers
+                You'll never need to lookup column names or country codes again! <strong>Type providers
                 </strong> make data access easy by integrating external data sources directly into
                 your programming environment.
               </p>
