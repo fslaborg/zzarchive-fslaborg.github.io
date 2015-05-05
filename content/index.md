@@ -20,10 +20,10 @@
               <img src="img/carousel/cc.png" style="height:160px; float:left; margin:0px 10px 20px 0px;" class="img-xs" />
               <p>
                 FsLab is a collection of libraries for data-science. It provides a rapid development
-                envi&shy;ronment that lets you write advanced analysis with few lines of production-quality code.
+                envi&shy;ronment that lets you write advanced analysis with a few lines of production-quality code.
               </p>
               <p>
-                Access data using <strong>type providers</strong>, explore it using efficient
+                Access data using <strong>type providers</strong>, explore it using a efficient
                 <strong>data-frame and time-series</strong> library and through the <strong>R language</strong>
                 integration and use rich <strong>visualization and reporting</strong>.
               </p>
@@ -60,7 +60,7 @@
           <div class="row">
             <div class="col-sm-5">
               <p>
-                You'll never need to lookup column names or country codes again! <strong>Type providers
+                You'll never need to look up column names or country codes again! <strong>Type providers
                 </strong> make data access easy by integrating external data sources directly into
                 your programming environment.
               </p>
@@ -82,7 +82,7 @@
               <img src="img/carousel/report.png" style="height:220px;margin-right:20px;float:left;" class="img-xs" />
               <p>
                 Data analysis using FsLab can be easily deployed into a cross-platform production
-                environment using Mono and .NET. It provides environment comfortable for scientists,
+                environment using Mono and .NET. It provides an environment comfortable for scientists,
                 data analysts as well as developers.
               </p>
               <p>
@@ -136,14 +136,14 @@
       <div class="col-xs-12 col-md-4 col-sm-6">
         <h2><span><i class="fa fa-comments"></i></span> Open-source</h2>
         <p>
-          All libraries included in FsLab are licensed under OSI-approved license
+          All libraries included in FsLab are licensed under OSI-approved licenses
           and have an active community of contributors on GitHub.
         </p>
       </div>
       <div class="col-xs-12 col-md-4 col-sm-6">
         <h2><span><i class="fa fa-line-chart"></i></span> Interactive</h2>
         <p>
-          FsLab encourages interactive development style. This makes it easy to explore the data
+          FsLab encourages an interactive development style. This makes it easy to explore the data
           and experiment with different analyses.
         </p>
       </div>
@@ -151,7 +151,7 @@
         <h2><span><i class="fa fa-rocket"></i></span> Efficient</h2>
         <p>
           F# code is type-inferred and compiled, while the Mono or .NET runtime gives you efficient
-          muti-core execution environment.
+          multi-core execution environment.
         </p>
       </div>
     </div>
@@ -304,8 +304,8 @@
           fsharpWorks also offer <a href="http://fsharpworks.com/workshops.html">custom workshops</a>.</li>
         </ul>
         <p>
-          There is a large number of other companies that provide training and
-          consulting services related to F# and will be able to help with FsLab. See the
+          There are a large number of other companies that provide training and
+          consulting services related to F# that will be able to help with FsLab. See the
           <a href="http://fsharp.org/training/">training page</a> and
           <a href="http://fsharp.org/consulting/">consulting page</a> on the
           F# Foundation web site.
