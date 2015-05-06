@@ -9,7 +9,7 @@ Tutorial _Getting started with FsLab_
 In this tutorial, you'll learn how to get started with FsLab. This walkthrough will not give
 you detailed information about the FsLab libraries. For that, refer to the individual libraries
 (see the "Documentation" tab in the navigation bar), but it quickly demonstrates how FsLab
-simplifies three steps of typical data science workflow:
+simplifies the three phases of a typical data science workflow:
 
  * **Access data** in a safe and easy way with type providers
  * **Analyze data** using powerful series and data frame libraries
@@ -20,16 +20,16 @@ simplifies three steps of typical data science workflow:
 Introduction
 ------------
 
-The demo shows all steps of the typical data science cycle and you'll see how FsLab
-helps with all of the three steps. The example compares university enrollment in
-European Union and Czech Republic - we'll start by getting data about the countries
+The demo shows all the typical steps of a data science cycle and you'll see how FsLab
+helps with each of them. The example compares university enrollment in the
+European Union and the Czech Republic - we'll start by getting data about the countries
 from the World Bank, then we'll do a simple exploratory data analysis and we'll
 finish with a little visualization.
 
 Accessing data with type providers
 ----------------------------------
 
-First, you need to [download FsLab template or package](/download). Then, we
+First, you need to [download the FsLab template or package](/download). Then, we
 reference the libraries that we need. Here, we use `FSharp.Data` for data access,
 `Deedle` for interactive data exploration and `Foogle` for visualization:
 *)
@@ -39,7 +39,7 @@ open Foogle
 open Deedle
 open FSharp.Data
 (**
-Next, we connect to the World Bank and access indicators for the European Union and
+Next, we connect to the World Bank and access the indicators for the European Union and
 Czech Republic. When doing this yourself, change the names to your country and a region
 or country nearby!
 *)
@@ -47,8 +47,8 @@ let wb = WorldBankData.GetDataContext()
 let cz = wb.Countries.``Czech Republic``.Indicators
 let eu = wb.Countries.``European Union``.Indicators
 (**
-When using advanced F# editor (Xamarin, Visual Studio, Emacs with F# mode etc.), you'll
-get auto-completion after typing `wb.Countries.` - this is the type provider magic that
+When using advanced F# editor (Xamarin, Visual Studio, Visual Studio Code, Emacs with F# mode etc.), 
+you'll get auto-completion after typing `wb.Countries.` - this is the type provider magic that
 makes it easy to access external data sources.
 
 Interactive data exploration
@@ -75,7 +75,7 @@ abs (czschool - euschool)
 (**
 
 With the FsLab journal template, you can easily embed the results of a computation into a
-report. In fact, this page has been generated using exactly this mechanism!
+report. In fact, this page has been generated using exactly that mechanism!
 
 Visualizing results
 -------------------
