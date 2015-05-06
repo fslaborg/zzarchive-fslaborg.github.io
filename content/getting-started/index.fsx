@@ -47,7 +47,7 @@ let wb = WorldBankData.GetDataContext()
 let cz = wb.Countries.``Czech Republic``.Indicators
 let eu = wb.Countries.``European Union``.Indicators
 (**
-When using advanced F# editor (Xamarin, Visual Studio, Visual Studio Code, Emacs with F# mode etc.), 
+When using advanced F# editor (Xamarin, Visual Studio, Emacs with F# mode etc.), 
 you'll get auto-completion after typing `wb.Countries.` - this is the type provider magic that
 makes it easy to access external data sources.
 
