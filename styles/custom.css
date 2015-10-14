@@ -62,6 +62,13 @@ a.navbar-brand
   background:#35103D !important;
 }
 
+@media (min-width: 768px) {
+  #navbar li { color:red; }
+}
+@media (min-width: 992px) {
+  #navbar li { color:blue; }
+}
+
 /************** FsLab Banner **************/
 
 .carousel .carousel-control
