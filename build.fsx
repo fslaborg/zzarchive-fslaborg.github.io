@@ -40,7 +40,7 @@ let info =
 #load "FsiMock.fs"
 #load "packages/FsLab/FsLab.fsx"
 #load "Formatters.fs"
-let fsiEvaluator1 = FsiEvaluator() 
+let fsiEvaluator1 = FsiEvaluator(fsiObj = FsiEvaluatorConfig.CreateNoOpFsiObject())
 let fsiEvaluator = FsLab.Formatters.wrapFsiEvaluator fsiEvaluator1 "." (System.IO.Path.Combine(__SOURCE_DIRECTORY__,"output")) "G4"
 fsiEvaluator1.EvaluationFailed.Add(fun e ->
   traceImportant <| sprintf "Evaluation failed: %s" e.StdErr
@@ -197,7 +197,7 @@ Target "Browse" (fun _ ->
   System.Diagnostics.Process.Start ("http://localhost:8083/index.html") |> ignore
 
   traceImportant "Waiting for site edits. Press any key to stop."
-  System.Console.ReadKey() |> ignore
+  System.Console.ReadLine() |> ignore
 )
 
 Target "Publish" (fun _ ->

@@ -4,7 +4,7 @@ source https://nuget.org/api/v2
 
 nuget Suave
 
-nuget FAKE
+nuget FAKE 4.5
 nuget FsLab
 
 nuget FSharp.Formatting

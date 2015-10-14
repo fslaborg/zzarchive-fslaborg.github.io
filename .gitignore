@@ -2,3 +2,5 @@ paket.exe
 output/
 packages/
 temp/
+*.svclog
+.fake/
