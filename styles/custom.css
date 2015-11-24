@@ -61,12 +61,23 @@ a.navbar-brand
 {
   background:#35103D !important;
 }
+.navbar li.active .dropdown-menu a
+{
+  background:#1D0821 !important;
+}
 
 @media (min-width: 768px) {
   #navbar li { color:red; }
 }
 @media (min-width: 992px) {
   #navbar li { color:blue; }
+}
+li .dropdown-menu .divider
+{
+  background-color:#321738;
+  height:2px;
+  margin:6px 3px 6px 3px;
+  padding:0px;
 }
 
 /************** FsLab Banner **************/
@@ -136,7 +147,7 @@ a.navbar-brand
   color:#D3C3D8;
   margin-left:20px;
 }
-.banner-wrapper p a
+.banner-wrapper p a, .banner-wrapper li a
 {
   color:white;
   font-weight:600;
@@ -202,6 +213,10 @@ a.navbar-brand
   height:70px;
   margin-top:5px;
 }
+.buzzword-wrapper a, .buzzword-wrapper a:hover, .buzzword-wrapper a:link, .buzzword-wrapper a:visited
+{
+  color:#A00975;
+}
 
 /**************  FsLab videos  **************/
 .vids-wrapper
@@ -217,7 +232,6 @@ a.navbar-brand
 .vids-wrapper .img-holder img
 {
   margin:0px 0px 50px 0px;
-  width:80%;
 }
 
 .vids-wrapper .img-holder i
