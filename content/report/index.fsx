@@ -2,6 +2,14 @@
 #I "../../"
 (**
 
+ - twitter:card summary
+ - twitter:creator @fslaborg
+ - twitter:title O'Reilly: Analyzing and Visualizing Data with F#
+ - twitter:description This O'Reilly report explains the key features of the F# language 
+    that make it a great tool for data science and machine learning and it guides you
+    through the entire data science workflow with FsLab.
+ - twitter:image http://fslab.org/img/report/cover-square.png
+
 O'Reilly _Analyzing and Visualizing Data with F#_
 ==================================================
 

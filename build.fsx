@@ -81,9 +81,35 @@ let layoutRoots =
   [ templates; formatting @@ "templates"
     formatting @@ "templates/reference" ]
 
+let rec (|AsPlainText|) items = 
+  items 
+  |> List.map (function
+    | Literal text 
+    | DirectLink(AsPlainText text, _) 
+    | Emphasis(AsPlainText text)
+    | Strong(AsPlainText text) -> text.Replace('\n', ' ').Replace('\r', ' ')
+    | _ -> "")
+  |> String.concat " "
+  
+
+let (|TwitterMetaList|_|) = function
+  | ListBlock(_, items) ->
+      let parsedItems = items |> List.map (function 
+        | [Span(AsPlainText text)] when text.StartsWith("twitter:") -> 
+            let space = text.IndexOf(" ")
+            if space > 0 then Some(text.[0 .. space-1], text.[space+1 .. ])
+            else None
+        | _ -> None ) 
+      if parsedItems |> List.forall (function Some _ -> true | _ -> false) then
+        Some(List.map Option.get parsedItems)
+      else None
+  | _ -> None
+
 let customizeDocument (ctx:ProcessingContext) (doc:LiterateDocument) =
-  // Find the first <hr /> element and treat the part before as a banner
   let pars = doc.Paragraphs |> Array.ofSeq
+  let pars = pars |> Array.filter (function TwitterMetaList _ -> false | _ -> true)
+
+  // Find the first <hr /> element and treat the part before as a banner
   let optBreak = pars |> Array.tryFindIndex (function HorizontalRule _ -> true | _ -> false)
   let banner, rest = 
     match optBreak with 
@@ -121,11 +147,82 @@ let customizeDocument (ctx:ProcessingContext) (doc:LiterateDocument) =
 
 // Build documentation from `fsx` and `md` files in `content`
 let buildDocumentation () =
+(*
   Literate.ProcessDirectory
-    ( content, docTemplate, output, replacements = ("root", "/")::info,
-      layoutRoots = layoutRoots, ?assemblyReferences = references,
-      generateAnchors = true, processRecursive = true, 
-      fsiEvaluator = fsiEvaluator, customizeDocument = customizeDocument )
+    ( 
+      replacements = ("root", "/")::info,
+      layoutRoots = layoutRoots, 
+      ?assemblyReferences = references,
+      generateAnchors = true, 
+      processRecursive = true, 
+      fsiEvaluator = fsiEvaluator, 
+      customizeDocument = customizeDocument 
+      )
+*)
+    let getMetaReplacement paragraphs =
+      let metaOpt = 
+        paragraphs 
+        |> Seq.tryPick (function TwitterMetaList kvps -> Some kvps | _ -> None)
+      match metaOpt with
+      | Some kvps ->
+          let html = 
+            kvps 
+            |> List.map (fun (k, v) -> sprintf "<meta name=\"%s\" content=\"%s\" />" (k.Trim()) (v.Trim()))
+            |> String.concat "\n"
+          ["twitter-meta", html]
+      | _ -> []
+
+    // Call one or the other process function with all the arguments
+    let processScriptFile file output = 
+      let doc = Literate.ParseScriptFile(file)
+      let meta = getMetaReplacement doc.Paragraphs
+
+      Literate.ProcessScriptFile
+        ( file, docTemplate, output, 
+          fsiEvaluator = fsiEvaluator, 
+          replacements = ("root", "/")::(meta @ info),
+          layoutRoots = layoutRoots, 
+          generateAnchors = true,
+          ?assemblyReferences = references, 
+          customizeDocument = customizeDocument )
+    let processMarkdown file output = 
+      let doc = Literate.ParseMarkdownFile(file)
+      let meta = getMetaReplacement doc.Paragraphs
+
+      Literate.ProcessMarkdown
+        ( file, docTemplate, output, 
+          replacements = ("root", "/")::(meta @ info),
+          layoutRoots = layoutRoots, 
+          generateAnchors = true,
+          ?assemblyReferences = references, 
+          customizeDocument = customizeDocument )
+    
+    /// Recursively process all files in the directory tree
+    let rec processDirectory indir outdir = 
+      // Create output directory if it does not exist
+      if Directory.Exists(outdir) |> not then
+        try Directory.CreateDirectory(outdir) |> ignore 
+        with _ -> failwithf "Cannot create directory '%s'" outdir
+
+      let fsx = [ for f in Directory.GetFiles(indir, "*.fsx") -> processScriptFile, f ]
+      let mds = [ for f in Directory.GetFiles(indir, "*.md") -> processMarkdown, f ]
+      for func, file in fsx @ mds do
+        let dir = Path.GetDirectoryName(file)
+        let name = Path.GetFileNameWithoutExtension(file)
+        let output = Path.Combine(outdir, sprintf "%s.html" name)
+
+        // Update only when needed
+        let changeTime = File.GetLastWriteTime(file)
+        let generateTime = File.GetLastWriteTime(output)
+        if changeTime > generateTime then
+          printfn "Generating '%s/%s.html'" dir name
+          func file output
+      for d in Directory.EnumerateDirectories(indir) do
+        let name = Path.GetFileName(d)
+        processDirectory (Path.Combine(indir, name)) (Path.Combine(outdir, name))
+
+    processDirectory content output
+
 
 let retryCall f = 
   let rec loop n = 
