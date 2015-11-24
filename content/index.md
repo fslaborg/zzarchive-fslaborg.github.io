@@ -148,10 +148,10 @@
         </p>
       </div>
       <div class="col-xs-12 col-md-4 col-sm-6">
-        <h2><span><i class="fa fa-rocket"></i></span> Efficient</h2>
+        <h2><span><i class="fa fa-rocket"></i></span> Cloud-scale</h2>
         <p>
-          F# code is type-inferred and compiled, while the Mono or .NET runtime gives you efficient
-          multi-core execution environment.
+          F# code is type-inferred and efficiently compiled. It runs on multi-core and you can easily
+          scale to the cloud with <a href="http://www.mbrace.io/">MBrace</a>.
         </p>
       </div>
     </div>
@@ -163,31 +163,56 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h2>Learn more <em>Videos and conference talks</em></h2>
+        <h2>Watch more <em>Videos and conference talks</em></h2>
+        <p>FsLab appears in many talks ranging from cancer research to Twitter analysis...</p>
         <ul>
           <li>
-            <a href="http://channel9.msdn.com/Events/dotnetConf/2015/The-F-Path-to-Data-Scripting-Nirvana">The F# Path to Data Scripting Nirvana</a> &nbsp; (Channel 9)<br />
-            This dotNetConf talk shows how to use FsLab together with <a href="http://www.m-brace.net/">M-Brace</a> for scalable data analysis, both locally and in the cloud.
+            <a href="https://channel9.msdn.com/Events/FSharp-Events/fsharp-ML-MVP-Summit-2015">F# + Machine Learning conference</a> &nbsp; (Channel 9)<br />
+            Two talks showing how to use FsLab together with <a href="http://www.m-brace.net/">M-Brace</a> for scalable data analysis, both locally and in the cloud.
+          </li>
+          <li>
+            <a href="https://vimeo.com/144816160">Putting fun into data analysis with F#</a> &nbsp; (Øredev 2015)<br />
+            This talk shows how to analyze social network data from Twitter looking at community dynamics and sentiment analysis.
           </li>
           <li>
             <a href="http://channel9.msdn.com/posts/Understanding-the-World-with-F">Understanding the World with F#</a> &nbsp; (Channel 9)<br />
             This lecture shows how to access JSON, CSV and World Bank data, combine and analyze the data and visualize the results.
-          </li>
-          <li>
-            <a href="http://channel9.msdn.com/posts/Tomas-Petricek-How-F-Learned-to-Stop-Worrying-and-Love-the-Data">How F# Learned to Stop Worrying and Love the Data</a> &nbsp; (Channel 9)<br />
-            This lecture shows the wide range of type providers for data access. It also shows early work on building visualizations with <a href="http://funscript.info/">FunScript</a>.
-          </li>
-          <li>
-            <a href="https://vimeo.com/111289053">Doing data science with F#</a> &nbsp; (Øredev 2014)<br />
-            A conference talk that shows additional FsLab examples, including the HTML and LaTeX report generation from your source code.
-          </li>
+          </li>          
         </ul>
+        <p>Watch more <a href="resources#Videos-and-conference-talks">FsLab videos and talks...</a></p>
       </div>
       <div class="col-md-5 img-holder">
-        <a href="http://channel9.msdn.com/posts/Understanding-the-World-with-F"><i class="fa fa-play"></i></a><br />
-        <img src="img/vid.jpg" />
+        <a href="https://vimeo.com/144816160"><i class="fa fa-play"></i></a><br />
+        <img src="img/vid.jpg" style="width:80%" />
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-4 img-holder">
+        <br /><br />
+        <a href="/report">
+        <img src="img/report/cover.png" style="width:60%" />
+        </a>
+      </div>
+      <div class="col-md-8">
+        <h2>Read more <em>Books, articles and blogs</em></h2>
+        <p>FsLab appears in many books and blogs covering data analysis and machine learning...</p>
+        <ul>
+          <li>
+            <a href="/report">Analyzing and Visualizing Data with F#</a> &nbsp; (O'Reilly)<br />
+            This free report introduces F#, type providers and all the FsLab libraries that you need to get started doing data science and machine learning.
+          </li>
+          <li>
+            <a href="http://www.apress.com/9781430267676">Machine Learning Projects for .NET Developers</a> &nbsp; (Apress)<br />
+            The book shows how to build smarter .NET applications that learn from data, demonstrating many of the FsLab libraries along the way.
+          </li>
+          <li>
+            <a href="http://evelinag.com/blog/2015/11-18-f-tackles-james-bond/">F# tackles James Bond</a> &nbsp; (Evelina Gabasova)<br />
+            The blog post analyzes budget, box office and ratings for James Bond movies and offers an interesting comparison with R.
+          </li>
+        </ul>
+        <p>Read more <a href="resources#Blog-posts-and-articles">FsLab articles and blogs...</a></p> 
+      </div>
+    </div>    
   </div>
 </div>
 
@@ -242,6 +267,26 @@
     </div>
     <div class="row components">
       <div class="col-md-6">
+        <h3><span><i class="fa fa-bar-chart"></i></span> XPlot <em>Powerful HTML5 charting</em></h3>
+        <ul>
+          <li>Create HTML5 charts with easy-to-use library</li>
+          <li>Choose between Google Charts and Plot.ly</li>
+          <li>Lines, bars, pies, bubbles, maps and much more!</li>
+        </ul>
+        <a href="https://tahahachana.github.io/XPlot/" class="btn fst btn-primary" role="button">XPlot homepage</a>
+      </div>
+      <div class="col-md-6">
+        <h3><span><i class="fa fa-line-chart"></i></span> F# Charting <em>For desktop charting</em></h3>
+        <ul>
+          <li>Rich, efficient charts for desktop apps</li>
+          <li>Create animated live and incremental charts</li>
+          <li>Easily integrates with .NET applications</li>
+        </ul>
+        <a href="http://fslab.org/FSharp.Charting/" class="btn fst btn-primary" role="button">F# Charting homepage</a>
+      </div>
+    </div>
+    <div class="row components">
+      <div class="col-md-6">
         <h3><span><i class="fa fa-flask"></i></span> FsLab <em>For integrated experience</em></h3>
         <ul>
           <li>One easy to install package with all you need</li>
@@ -269,10 +314,11 @@
     <div class="row">
       <div class="col-md-12">
         <a href="http://fsharp.github.io/FSharp.Data/"><img src="/img/logos/fsharpdata.png" /></a>
+        <a href="https://tahahachana.github.io/XPlot/"><img src="/img/logos/xplot.png" /></a>
         <a href="http://bluemountaincapital.github.io/Deedle/"><img src="/img/logos/deedle.png" /></a>
         <a href="http://bluemountaincapital.github.io/FSharpRProvider"><img src="/img/logos/rprovider.png" /></a>
-        <a href="http://tpetricek.github.io/FSharp.Formatting"><img src="/img/logos/fsformatting.png" /></a>
         <a href="http://numerics.mathdotnet.com"><img src="/img/logos/mathnet.png" /></a>
+        <a href="http://tpetricek.github.io/FSharp.Formatting"><img src="/img/logos/fsformatting.png" /></a>
         <a href="http://www.fslab.org"><img src="/img/logos/fslab.png" /></a>
       </div>
     </div>

@@ -41,10 +41,10 @@ let info =
 #load "packages/FsLab/FsLab.fsx"
 #load "Formatters.fs"
 let fsiEvaluator1 = FsiEvaluator(fsiObj = FsiEvaluatorConfig.CreateNoOpFsiObject())
-let fsiEvaluator = FsLab.Formatters.wrapFsiEvaluator fsiEvaluator1 "." (System.IO.Path.Combine(__SOURCE_DIRECTORY__,"output")) "G4"
+let fsiEvaluator = 
+  FsLab.Formatters.wrapFsiEvaluator fsiEvaluator1 "." (__SOURCE_DIRECTORY__ @@ "output") "G4"
 fsiEvaluator1.EvaluationFailed.Add(fun e ->
-  traceImportant <| sprintf "Evaluation failed: %s" e.StdErr
-)
+  traceImportant <| sprintf "Evaluation failed: %s" e.StdErr )
 
 // Paths with template/source/output locations
 let content    = __SOURCE_DIRECTORY__ @@ "content"
@@ -61,29 +61,17 @@ let copyFiles () =
   CopyRecursive (formatting @@ "styles") (output @@ "content") true 
   |> Log "Copying styles and scripts: "
 
-let references =
-  if isMono then
-    // Workaround compiler errors in Razor-ViewEngine
-    let d = RazorEngine.Compilation.ReferenceResolver.UseCurrentAssembliesReferenceResolver()
-    let loadedList = d.GetReferences () |> Seq.map (fun r -> r.GetFile()) |> Seq.cache
-    // We replace the list and add required items manually as mcs doesn't like duplicates...
-    let getItem name = loadedList |> Seq.find (fun l -> l.Contains name)
-    [ (getItem "FSharp.Core").Replace("4.3.0.0", "4.3.1.0")
-      Path.GetFullPath(__SOURCE_DIRECTORY__ @@ "packages/FSharp.Compiler.Service/lib/net40/FSharp.Compiler.Service.dll")
-      Path.GetFullPath(__SOURCE_DIRECTORY__ @@ "packages/FSharp.Formatting/lib/net40/System.Web.Razor.dll")
-      Path.GetFullPath(__SOURCE_DIRECTORY__ @@ "packages/FSharp.Formatting/lib/net40/RazorEngine.dll")
-      Path.GetFullPath(__SOURCE_DIRECTORY__ @@ "packages/FSharp.Formatting/lib/net40/FSharp.Literate.dll")
-      Path.GetFullPath(__SOURCE_DIRECTORY__ @@ "packages/FSharp.Formatting/lib/net40/FSharp.CodeFormat.dll")
-      Path.GetFullPath(__SOURCE_DIRECTORY__ @@ "packages/FSharp.Formatting/lib/net40/FSharp.MetadataFormat.dll") ] |> Some
-  else None
-
 let layoutRoots =
   [ templates; formatting @@ "templates"
     formatting @@ "templates/reference" ]
 
-let rec (|AsPlainText|) items = 
-  items 
-  |> List.map (function
+// --------------------------------------------------------------------------------------
+// Document pre-processing
+// --------------------------------------------------------------------------------------
+
+/// Format MarkdownSpans as plain text dropping basic formatting
+let rec (|AsPlainText|) items =
+  items |> List.map (function
     | Literal text 
     | DirectLink(AsPlainText text, _) 
     | Emphasis(AsPlainText text)
@@ -92,6 +80,7 @@ let rec (|AsPlainText|) items =
   |> String.concat " "
   
 
+/// Matches a list with twitter meta tags 
 let (|TwitterMetaList|_|) = function
   | ListBlock(_, items) ->
       let parsedItems = items |> List.map (function 
@@ -105,6 +94,15 @@ let (|TwitterMetaList|_|) = function
       else None
   | _ -> None
 
+
+/// Transforms the document by doing the following:
+///
+///  - drop twitter meta tags 
+///  - if it is the index page, do nothing else
+///  - if it has a banner, wrap banner with DIVs
+///  - if it is not a special page, insert right panel
+///    (special pages start with HTML to define columns)
+///
 let customizeDocument (ctx:ProcessingContext) (doc:LiterateDocument) =
   let pars = doc.Paragraphs |> Array.ofSeq
   let pars = pars |> Array.filter (function TwitterMetaList _ -> false | _ -> true)
@@ -145,95 +143,70 @@ let customizeDocument (ctx:ProcessingContext) (doc:LiterateDocument) =
       yield InlineBlock "</div></div>" ]
   doc.With(newPars)
 
+
+// --------------------------------------------------------------------------------------
+// Building documentation
+// --------------------------------------------------------------------------------------
+
 // Build documentation from `fsx` and `md` files in `content`
 let buildDocumentation () =
-(*
-  Literate.ProcessDirectory
-    ( 
-      replacements = ("root", "/")::info,
-      layoutRoots = layoutRoots, 
-      ?assemblyReferences = references,
-      generateAnchors = true, 
-      processRecursive = true, 
-      fsiEvaluator = fsiEvaluator, 
-      customizeDocument = customizeDocument 
-      )
-*)
-    let getMetaReplacement paragraphs =
-      let metaOpt = 
-        paragraphs 
-        |> Seq.tryPick (function TwitterMetaList kvps -> Some kvps | _ -> None)
-      match metaOpt with
-      | Some kvps ->
-          let html = 
-            kvps 
-            |> List.map (fun (k, v) -> sprintf "<meta name=\"%s\" content=\"%s\" />" (k.Trim()) (v.Trim()))
-            |> String.concat "\n"
-          ["twitter-meta", html]
-      | _ -> []
 
-    // Call one or the other process function with all the arguments
-    let processScriptFile file output = 
-      let doc = Literate.ParseScriptFile(file)
-      let meta = getMetaReplacement doc.Paragraphs
+  // Extract twitter meta tags from the document and insert it as
+  // a special 'twitter-meta' key in the page properties
+  let getMetaReplacement paragraphs =
+    let metaOpt = paragraphs |> Seq.tryPick (function 
+      TwitterMetaList kvps -> Some kvps | _ -> None)
+    match metaOpt with
+    | Some kvps ->
+        let html = 
+          kvps 
+          |> List.map (fun (k, v) -> sprintf "<meta name=\"%s\" content=\"%s\" />" (k.Trim()) (v.Trim()))
+          |> String.concat "\n"
+        ["twitter-meta", html]
+    | _ -> []
 
-      Literate.ProcessScriptFile
-        ( file, docTemplate, output, 
-          fsiEvaluator = fsiEvaluator, 
-          replacements = ("root", "/")::(meta @ info),
-          layoutRoots = layoutRoots, 
-          generateAnchors = true,
-          ?assemblyReferences = references, 
-          customizeDocument = customizeDocument )
-    let processMarkdown file output = 
-      let doc = Literate.ParseMarkdownFile(file)
-      let meta = getMetaReplacement doc.Paragraphs
+  // Call one or the other process function with all the arguments
+  let processScriptFile file output = 
+    let doc = Literate.ParseScriptFile(file)
+    let meta = getMetaReplacement doc.Paragraphs
+    Literate.ProcessScriptFile
+      ( file, docTemplate, output, fsiEvaluator = fsiEvaluator, 
+        replacements = ("root", "/")::(meta @ info), layoutRoots = layoutRoots, 
+        generateAnchors = true, customizeDocument = customizeDocument )
 
-      Literate.ProcessMarkdown
-        ( file, docTemplate, output, 
-          replacements = ("root", "/")::(meta @ info),
-          layoutRoots = layoutRoots, 
-          generateAnchors = true,
-          ?assemblyReferences = references, 
-          customizeDocument = customizeDocument )
+  let processMarkdown file output = 
+    let doc = Literate.ParseMarkdownFile(file)
+    let meta = getMetaReplacement doc.Paragraphs
+    Literate.ProcessMarkdown
+      ( file, docTemplate, output, replacements = ("root", "/")::(meta @ info),
+        layoutRoots = layoutRoots, generateAnchors = true, customizeDocument = customizeDocument )
     
-    /// Recursively process all files in the directory tree
-    let rec processDirectory indir outdir = 
-      // Create output directory if it does not exist
-      if Directory.Exists(outdir) |> not then
-        try Directory.CreateDirectory(outdir) |> ignore 
-        with _ -> failwithf "Cannot create directory '%s'" outdir
+  /// Recursively process all files in the directory tree
+  let rec processDirectory indir outdir = 
+    // Create output directory if it does not exist
+    if Directory.Exists(outdir) |> not then
+      try Directory.CreateDirectory(outdir) |> ignore 
+      with _ -> failwithf "Cannot create directory '%s'" outdir
 
-      let fsx = [ for f in Directory.GetFiles(indir, "*.fsx") -> processScriptFile, f ]
-      let mds = [ for f in Directory.GetFiles(indir, "*.md") -> processMarkdown, f ]
-      for func, file in fsx @ mds do
-        let dir = Path.GetDirectoryName(file)
-        let name = Path.GetFileNameWithoutExtension(file)
-        let output = Path.Combine(outdir, sprintf "%s.html" name)
+    let fsx = [ for f in Directory.GetFiles(indir, "*.fsx") -> processScriptFile, f ]
+    let mds = [ for f in Directory.GetFiles(indir, "*.md") -> processMarkdown, f ]
+    for func, file in fsx @ mds do
+      let dir = Path.GetDirectoryName(file)
+      let name = Path.GetFileNameWithoutExtension(file)
+      let output = Path.Combine(outdir, sprintf "%s.html" name)
 
-        // Update only when needed
-        let changeTime = File.GetLastWriteTime(file)
-        let generateTime = File.GetLastWriteTime(output)
-        if changeTime > generateTime then
-          printfn "Generating '%s/%s.html'" dir name
-          func file output
-      for d in Directory.EnumerateDirectories(indir) do
-        let name = Path.GetFileName(d)
-        processDirectory (Path.Combine(indir, name)) (Path.Combine(outdir, name))
+      // Update only when needed
+      let changeTime = File.GetLastWriteTime(file)
+      let generateTime = File.GetLastWriteTime(output)
+      if changeTime > generateTime then
+        printfn "Generating '%s/%s.html'" dir name
+        func file output
+    for d in Directory.EnumerateDirectories(indir) do
+      let name = Path.GetFileName(d)
+      processDirectory (Path.Combine(indir, name)) (Path.Combine(outdir, name))
 
-    processDirectory content output
+  processDirectory content output
 
-
-let retryCall f = 
-  let rec loop n = 
-    try f()
-    with e ->
-      if n = 0 then printfn "%A" e else 
-        printfn "Error: %s" e.Message
-        printfn "Waiting 1s before retrying: %d" n 
-        System.Threading.Thread.Sleep(1000)
-        loop (n-1)
-  loop 10
 
 // --------------------------------------------------------------------------------------
 // FAKE targets for generating and releasing documentation
@@ -253,6 +226,17 @@ Target "Browse" (fun _ ->
     [ content, buildDocumentation
       files, copyFiles
       templates, copyFiles >> buildDocumentation ]
+
+  let retryCall f = 
+    let rec loop n = 
+      try f()
+      with e ->
+        if n = 0 then printfn "%A" e else 
+          printfn "Error: %s" e.Message
+          printfn "Waiting 1s before retrying: %d" n 
+          System.Threading.Thread.Sleep(1000)
+          loop (n-1)
+    loop 10
 
   let killServer = ref None
   let startWebServer () =
