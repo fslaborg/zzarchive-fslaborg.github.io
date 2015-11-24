@@ -26,7 +26,7 @@ The report is freely available from O'Reilly. To get it, follow the link below. 
 more information, errata and also the latest version of the source code.
 
 <div style="text-align:center;padding:10px 0px 10px 0px">
-<a href="#" class="btn btn-primary" role="button">
+<a href="http://www.oreilly.com/programming/free/analyzing-visualizing-data-f-sharp.csp" class="btn btn-primary" role="button">
   <strong>Get it from O'Reilly</strong></a>
 <a href="https://github.com/fslaborg/OReilly.Report/archive/master.zip" class="btn btn-primary" role="button">
   <strong>Download source code</strong></a>
