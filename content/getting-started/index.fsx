@@ -58,8 +58,8 @@ Just like we can easily find countries and regions, we can easily get interestin
 about them. To compare university enrollment in Czech Republic and European Union, we just pick
 the relevant indicator and use the `series` function to create a Deedle time-series:
 *)
-let czschool = series cz.``School enrollment, tertiary (% gross)``
-let euschool = series eu.``School enrollment, tertiary (% gross)``
+let czschool = series cz.``Gross enrolment ratio, tertiary, both sexes (%)``
+let euschool = series eu.``Gross enrolment ratio, tertiary, both sexes (%)``
 (**
 When using Deedle, you can apply numerical operations to an entire time-series. Here, we
 calculate the difference between CZ and EU data. Deedle automatically aligns the time-series
@@ -90,8 +90,8 @@ the table above:
 Chart.LineChart
  ([ for y in 1985 .. 2012 ->
      string y,
-       [ cz.``School enrollment, tertiary (% gross)``.[y]
-         eu.``School enrollment, tertiary (% gross)``.[y] ] ],
+       [ cz.``Gross enrolment ratio, tertiary, both sexes (%)``.[y]
+         eu.``Gross enrolment ratio, tertiary, both sexes (%)``.[y] ] ],
   Labels = ["CZ"; "EU"])
 (**
 
