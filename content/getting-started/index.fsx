@@ -35,13 +35,15 @@ reference the libraries that we need. Here, we use `FSharp.Data` for data access
 *)
 #load "packages/FsLab/FsLab.fsx"
 
+open XPlot.GoogleCharts
+open Deedle
+open FSharp.Data
+
 (**
 Next, we connect to the World Bank and access the indicators for the European Union and
 Czech Republic. When doing this yourself, change the names to your country and a region
 or country nearby!
 *)
-open FSharp.Data
-
 let wb = WorldBankData.GetDataContext()
 let cz = wb.Countries.``Czech Republic``.Indicators
 let eu = wb.Countries.``European Union``.Indicators
@@ -57,8 +59,6 @@ Just like we can easily find countries and regions, we can easily get interestin
 about them. To compare university enrollment in Czech Republic and European Union, we just pick
 the relevant indicator and use the `series` function to create a Deedle time-series:
 *)
-open Deedle
-
 let czschool = series cz.``Gross enrolment ratio, tertiary, both sexes (%)``
 let euschool = series eu.``Gross enrolment ratio, tertiary, both sexes (%)``
 (**
@@ -88,8 +88,6 @@ but we can also embed it into this page, just like the table above:
 
 *)
 (*** define-output:chart ***)
-open XPlot.GoogleCharts
-
 Frame(["CZ"; "EU"], [czschool ; euschool])
 |> Frame.filterRows (fun year s -> year >= 1985)
 |> Chart.Line
