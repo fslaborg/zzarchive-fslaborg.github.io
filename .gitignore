@@ -4,3 +4,5 @@ packages/
 temp/
 *.svclog
 .fake/
+paket-files/
+.paket/Paket.Restore.targets
