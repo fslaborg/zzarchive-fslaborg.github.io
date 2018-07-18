@@ -6,7 +6,7 @@ Resources _Books, talks and articles_
 This page collects books, videos, recorded conference talks, articles and blog posts
 about FsLab and the various libraries that are a part of the FsLab package.
 
- * [Books and reports](#Books-and-reports) including free O'Reilly report
+ * [Books and reports](#Books-and-reports) including O'Reilly report
  * [Videos and conference talks](#Videos-and-conference-talks) including Strata, NDC and Øredev
  * [Blog posts and articles](#Blog-posts-and-articles) about FsLab, XPlot, Deedle and more
 

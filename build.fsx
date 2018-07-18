@@ -29,7 +29,7 @@ open Suave.Http.Files
 let githubLink = "http://github.com/fslaborg/fslaborg.github.io"
 let publishBranch = "master"
 let info =
-  [ "project-name", "N/A"; "project-author", "N/A"; "project-summary", "N/A"; 
+  [ "project-name", "fslaborg.github.io"; "project-author", "FsLab Contributors"; "project-summary", "F# packages for data science"; 
     "project-github", githubLink; "project-nuget", "N/A" ]
 
 // --------------------------------------------------------------------------------------
