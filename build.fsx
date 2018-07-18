@@ -26,7 +26,7 @@ open Suave.Http.Files
 // Global definitions
 // --------------------------------------------------------------------------------------
 
-let githubLink = "http://github.com/fslaborg/fslab.org"
+let githubLink = "http://github.com/fslaborg/fslaborg.github.io"
 let publishBranch = "master"
 let info =
   [ "project-name", "N/A"; "project-author", "N/A"; "project-summary", "N/A"; 
