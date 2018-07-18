@@ -23,19 +23,17 @@ Introduction
 The demo shows all the typical steps of a data science cycle and you'll see how FsLab
 helps with each of them. The example compares university enrollment in the
 European Union and the Czech Republic - we'll start by getting data about the countries
-from the World Bank, then we'll do a simple exploratory data analysis and we'll
-finish with a little visualization.
+from the World Bank, then we'll do a simple exploratory data analysis.
 
 Accessing data with type providers
 ----------------------------------
 
 First, you need to [download the FsLab template or package](/download). Then, we
-reference the libraries that we need. Here, we use `FSharp.Data` for data access,
-`Deedle` for interactive data exploration and `XPlot` for visualization:
+reference the libraries that we need. Here, we use `FSharp.Data` for data access and
+`Deedle` for interactive data exploration:
 *)
 #load "packages/FsLab/FsLab.fsx"
 
-open XPlot.GoogleCharts
 open Deedle
 open FSharp.Data
 
@@ -59,8 +57,8 @@ Just like we can easily find countries and regions, we can easily get interestin
 about them. To compare university enrollment in Czech Republic and European Union, we just pick
 the relevant indicator and use the `series` function to create a Deedle time-series:
 *)
-let czschool = series cz.``Gross enrolment ratio, tertiary, both sexes (%)``
-let euschool = series eu.``Gross enrolment ratio, tertiary, both sexes (%)``
+let czschool = series cz.``School enrollment, tertiary (% gross)``
+let euschool = series eu.``School enrollment, tertiary (% gross)``
 (**
 When using Deedle, you can apply numerical operations to an entire time-series. Here, we
 calculate the difference between CZ and EU data. Deedle automatically aligns the time-series
@@ -77,25 +75,6 @@ abs (czschool - euschool)
 
 With the FsLab journal template, you can easily embed the results of a computation into a
 report. In fact, this page has been generated using exactly that mechanism!
-
-Visualizing results
--------------------
-
-As a final step, we're going to create a chart that shows the two time series
-side-by-side. The following example uses the XPlot chart library which is a wrapper over GoogleCharts.
-When used in F# Interactive, this opens a web page with the chart, 
-but we can also embed it into this page, just like the table above:
-
-*)
-(*** define-output:chart ***)
-Frame(["CZ"; "EU"], [czschool ; euschool])
-|> Frame.filterRows (fun year s -> year >= 1985)
-|> Chart.Line
-|> Chart.WithLegend true
-|> Chart.WithTitle "University enrollment in Czech Republic and European Union"
-
-(*** include-it:chart ***)
-(**
 
 Summary
 -------

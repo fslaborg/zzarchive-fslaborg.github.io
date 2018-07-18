@@ -6,7 +6,6 @@ open Deedle.Internal
 open FSharp.Literate
 open FSharp.Markdown
 open FSharp.Charting
-open Foogle
 
 // --------------------------------------------------------------------------------------
 // Implements Markdown formatters for common FsLab things - including Deedle series
@@ -244,41 +243,6 @@ let wrapFsiEvaluator (fsiEvaluator:FsiEvaluator) root output (floatFormat:string
           ch.CopyAsBitmap().Save(output @@ "images" @@ file, System.Drawing.Imaging.ImageFormat.Png) )
         Some [ Paragraph [DirectImage ("", (root + "/images/" + file, None))]  ]
 
-    | :? FoogleChart as fch -> 
-
-        // TODO: Does not work for LaTex!
-        let fch = Foogle.Formatting.Google.CreateGoogleChart(fch)
-
-        let count = foogleCounter()
-        let id = "foogle_" + count.ToString()
-        let data = fch.Data.ToString(FSharp.Data.JsonSaveOptions.DisableFormatting)
-        let opts = fch.Options.ToString(FSharp.Data.JsonSaveOptions.DisableFormatting)
-
-        let script =
-          [ "foogleCharts.push(function() {"
-            sprintf "var data = google.visualization.arrayToDataTable(%s);" data
-            sprintf "var options = %s;" opts
-            sprintf "var chart = new google.visualization.%s(document.getElementById('%s'));" fch.Kind id
-            "chart.draw(data, options);"
-            "});" ]
-        let htmlChart = 
-          """<script type="text/javascript">""" + (String.concat "\n" script) + "</script>" +
-          (sprintf "<div id=\"%s\" style=\"height:400px; margin:0px 45px 0px 25px\"></div>" id)
-         
-        let htmlOnce = """
-          <script type="text/javascript">
-            var foogleCharts = []
-            function foogleInit() {
-              for (var i = 0; i < foogleCharts.length; i++) {
-                foogleCharts[i]();
-              }
-            }
-            google.load('visualization', '1', { 'packages': ['corechart','geochart'] });
-            google.setOnLoadCallback(foogleInit);
-          </script>"""
-
-        let html = if count = 1 then htmlOnce + htmlChart else htmlChart
-        [ InlineBlock(html) ] |> Some
 
     | SeriesValues s ->
         // Pretty print series!

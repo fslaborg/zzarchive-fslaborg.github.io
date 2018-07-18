@@ -40,7 +40,6 @@ This happens automatically when you build the project, but you can also do it by
  - In the basic template, run [`paket install`](http://fsprojects.github.io/Paket/paket-install.html).
    For example, when using mono on Mac, run:
 
-        mono .paket/paket.bootstrapper.exe
         mono .paket/paket.exe install
 
  - In the journal template you can use build scripts `build.sh` and `build.cmd`.
@@ -110,7 +109,7 @@ following command (the version will differ, so you'll have to check the created
 `packages` directory; when the project is in a sub-folder you'll also need
 to use `../packages`).
 *)
-#load "packages/FsLab.0.1.4/FsLab.fsx"
+#load "packages/FsLab/FsLab.fsx"
 open FsLab
 (**
 

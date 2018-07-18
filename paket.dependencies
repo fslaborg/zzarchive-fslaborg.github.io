@@ -1,10 +1,10 @@
 source https://nuget.org/api/v2
-
+framework: net46
 
 
 nuget Suave
 
-nuget FAKE 4.5
-nuget FsLab
+nuget FAKE 4.64.13
+nuget FsLab 1.0.2
 
 nuget FSharp.Formatting
