@@ -5,7 +5,6 @@
 #load "packages/FSharp.Formatting/FSharp.Formatting.fsx"
 #I "packages/Suave/lib/net40"
 #I "packages/FAKE/tools/"
-#r "NuGet.Core.dll"
 #r "FakeLib.dll"
 #r "Suave.dll"
 open Fake
@@ -20,7 +19,6 @@ open FSharp.Markdown
 open Suave
 open Suave.Web
 open Suave.Http
-open Suave.Http.Files
 
 // --------------------------------------------------------------------------------------
 // Global definitions
@@ -241,11 +239,12 @@ Target "Browse" (fun _ ->
   let killServer = ref None
   let startWebServer () =
     let serverConfig = { defaultConfig with homeFolder = Some output }
+    let (>=>) = Suave.Operators.(>=>)
     let app =
         Writers.setHeader "Cache-Control" "no-cache, no-store, must-revalidate"
-        >>= Writers.setHeader "Pragma" "no-cache"
-        >>= Writers.setHeader "Expires" "0"
-        >>= choose [ browseHome; file "index.html" ]
+        >=> Writers.setHeader "Pragma" "no-cache"
+        >=> Writers.setHeader "Expires" "0"
+        >=> choose [ Files.browseHome; Files.file "index.html" ]
     let server = startWebServerAsync serverConfig app |> snd
     let tok = new System.Threading.CancellationTokenSource()
     Async.Start(server, tok.Token)
