@@ -12,14 +12,14 @@
     <div class="carousel-inner" role="listbox">
       <div class="item active">
         <div class="container">
-          <h1>Data science tools <em>Professional, powerful &amp; cross-platform</em></h1>
+          <h1>Data science packages for F# <em>Powerful &amp; cross-platform</em></h1>
           <div class="row">
             <div class="col-sm-4 ta-right img-md" style="padding-left:0px;">
               <img src="img/carousel/cc.png" style="height:200px;margin-right:20px" />
             </div><div class="col-sm-8">
               <img src="img/carousel/cc.png" style="height:160px; float:left; margin:0px 10px 20px 0px;" class="img-xs" />
               <p>
-                FsLab is a collection of libraries for data-science. It provides a rapid development
+                FsLab is a collection of F# packages for data-science. They provide a rapid development
                 envi&shy;ronment that lets you write advanced analysis with a few lines of production-quality code.
               </p>
               <p>
@@ -37,12 +37,12 @@
       </div>
       <div class="item">
         <div class="container">
-          <h1>Increased productivity <em>Easy data access with R integration</em></h1>
+          <h1>Use what you know <em>Easy data access with R integration</em></h1>
           <div class="row">
             <div class="col-sm-5">
               <p>
-                Use <strong>F# Data type providers</strong> to access data from WorldBank, CSV files
-                and any other JSON or XML-based web services and cleanup data easily.
+                Use <strong>FSharp.Data type providers</strong> to access data from HTML, CSV files
+                and JSON and XML-based web services and cleanup data easily.
               </p>
               <p>
                 Use the <strong>R type provider</strong> to call any package from the R language
@@ -78,11 +78,11 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-8">
-              <h1 style="margin-top:10px;">Production-ready <em>Create reports and deploy in production</em></h1>
+              <h1 style="margin-top:10px;">Reports and Documents <em>Create reports and deploy in production</em></h1>
               <img src="img/carousel/report.png" style="height:220px;margin-right:20px;float:left;" class="img-xs" />
               <p>
-                Data analysis using FsLab can be easily deployed into a cross-platform production
-                environment using Mono and .NET. It provides an environment comfortable for scientists,
+                Data analysis scripts using FsLab can be deployed into cross-platform production
+                environments. Markdown scripts provides an environment comfortable for scientists,
                 data analysts as well as developers.
               </p>
               <p>
@@ -116,7 +116,7 @@
         <h2><span><i class="fa fa-cubes"></i></span> Cross-platform</h2>
         <p>
           FsLab runs on Mac, Linux and Windows. You can use it with Emacs,
-          Xamarin Studio, MonoDevelop, Visual Studio or other F#-enabled editor.
+          Visual Studio Code, Visual Studio or any other F#-enabled editor.
         </p>
       </div>
       <div class="col-xs-12 col-md-4 col-sm-6">
@@ -151,7 +151,7 @@
         <h2><span><i class="fa fa-rocket"></i></span> Cloud-scale</h2>
         <p>
           F# code is type-inferred and efficiently compiled. It runs on multi-core and you can easily
-          scale to the cloud with <a href="http://www.mbrace.io/">MBrace</a>.
+          scale to the cloud with <a href="https://docs.microsoft.com/dotnet/fsharp/using-fsharp-on-azure/">Azure</a>.
         </p>
       </div>
     </div>
@@ -226,13 +226,13 @@
     </div>
     <div class="row components">
       <div class="col-md-6">
-        <h3><span><i class="fa fa-database"></i></span> F# Data <em>First-class data access</em></h3>
+        <h3><span><i class="fa fa-database"></i></span> FSharp.Data <em>First-class data access</em></h3>
         <ul>
           <li>Use language that understands external data sources</li>
-          <li>Access JSON, XML, CSV, HTML and WorldBank</li>
+          <li>Access JSON, XML, CSV and HTML</li>
           <li>Get auto-completion based on a sample document</li>
         </ul>
-        <a href="http://fsharp.github.io/FSharp.Data/" class="btn fst btn-primary" role="button">F# Data homepage</a>
+        <a href="http://fsharp.github.io/FSharp.Data/" class="btn fst btn-primary" role="button">FSharp.Data homepage</a>
       </div>
       <div class="col-md-6">
         <h3><span><i class="fa fa-bars"></i></span> Deedle <em>Interactive data exploration</em></h3>
@@ -241,8 +241,8 @@
           <li>Quickly explore data &amp; build efficient compiled code</li>
           <li>Automatic alignment, missing data handling &amp; more</li>
         </ul>
-        <a href="http://bluemountaincapital.github.io/Deedle/tutorial.html" class="btn fst btn-primary" role="button">Deedle in 10 minutes</a>
-        <a href="http://bluemountaincapital.github.io/Deedle/" class="btn btn-primary" role="button">Homepage</a>
+        <a href="http://fslab.org/Deedle/tutorial.html" class="btn fst btn-primary" role="button">Deedle in 10 minutes</a>
+        <a href="http://fslab.org/Deedle/" class="btn btn-primary" role="button">Homepage</a>
       </div>
     </div>
     <div class="row components">
@@ -253,7 +253,7 @@
           <li>Pass data frames and time-series to R easily</li>
           <li>Get auto-completion on R functions &amp; parameters</li>
         </ul>
-        <a href="http://bluemountaincapital.github.io/FSharpRProvider" class="btn fst btn-primary" role="button">R provider homepage</a>
+        <a href="http://fslab.org/RProvider" class="btn fst btn-primary" role="button">R provider homepage</a>
       </div>
       <div class="col-md-6">
         <h3><span><i class="fa fa-calculator"></i></span> Math.NET <em>Fast numerical calculations</em></h3>
@@ -315,11 +315,11 @@
       <div class="col-md-12">
         <a href="http://fsharp.github.io/FSharp.Data/"><img src="/img/logos/fsharpdata.png" /></a>
         <a href="https://fslab.org/XPlot/"><img src="/img/logos/xplot.png" /></a>
-        <a href="http://bluemountaincapital.github.io/Deedle/"><img src="/img/logos/deedle.png" /></a>
-        <a href="http://bluemountaincapital.github.io/FSharpRProvider"><img src="/img/logos/rprovider.png" /></a>
+        <a href="http://fslab.org/Deedle/"><img src="/img/logos/deedle.png" /></a>
+        <a href="http://fslab.org/RProvider"><img src="/img/logos/rprovider.png" /></a>
         <a href="http://numerics.mathdotnet.com"><img src="/img/logos/mathnet.png" /></a>
         <a href="https://fsprojects.github.io/FSharp.Formatting"><img src="/img/logos/fsformatting.png" /></a>
-        <a href="http://www.fslab.org"><img src="/img/logos/fslab.png" /></a>
+        <a href="http://fslab.org"><img src="/img/logos/fslab.png" /></a>
       </div>
     </div>
   </div>
@@ -334,7 +334,6 @@
           Training and support <em>Need help with FsLab?</em><a name="support">&nbsp;</a>
         </h2>
         <p>
-          Consultancy partners including
           <a href="http://fsharpworks.com/">fsharpWorks</a>
           contribute to FsLab and provide training, support and
           other services.
@@ -343,19 +342,12 @@
           <li>
             If you are using FsLab in finance, you can learn more about FsLab from the
             online course <a href="http://fsharpworks.com/workshops/finance.html">F# in Finance</a>,
-            which covers Deedle, F# Data and other components.
+            which covers Deedle, FSharp.Data and other components.
           </li>
           <li>The <a href="http://fsharpworks.com/workshops/fast-track.html">FastTrack to F#</a>
           course covers many of the FsLab components too and
           fsharpWorks also offer <a href="http://fsharpworks.com/workshops.html">custom workshops</a>.</li>
         </ul>
-        <p>
-          There are a large number of other companies that provide training and
-          consulting services related to F# that will be able to help with FsLab. See the
-          <a href="http://fsharp.org/training/">training page</a> and
-          <a href="http://fsharp.org/consulting/">consulting page</a> on the
-          F# Foundation web site.
-        </p>
       </div>
       <div class="col-md-5 img-holder">
         <a href="http://www.fsharpworks.com">

@@ -21,7 +21,7 @@ Download a template
 
 The easiest way to get started is to copy one of the templates that are
 from the [FsLab templates](http://github.com/fslaborg/FsLab.Templates)
-repository. The templates work with Xamarin Studio, Visual Studio and other
+repository. The templates work with Visual Studio Code, Visual Studio and other
 F# editors.
 
 <div style="margin:25px 0px 45px 15px">
