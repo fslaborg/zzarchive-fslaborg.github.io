@@ -10,7 +10,7 @@ about FsLab and the various libraries that are a part of the FsLab package.
  * [Videos and conference talks](#Videos-and-conference-talks) including Strata, NDC and Øredev
  * [Blog posts and articles](#Blog-posts-and-articles) about FsLab, XPlot, Deedle and more
 
-If you did a talk or wrote an article yourself, send us [a pull request and add it](https://github.com/fslaborg/fslaborg.github.io/blob/source/content/resources/index.md)
+If you did a talk or wrote an article yourself, send us [a pull request and add it](https://github.com/fslaborg/fslab.org/blob/source/content/resources/index.md)
 to the list! 
 
 ***************************************************************************************************
@@ -27,7 +27,7 @@ _Tomas Petricek, O'Reilly, 2015_
 This report explains many of the key features of the F# language that make it a great tool 
 for data science and machine learning. Real world examples take you through the entire data 
 science workflow with F#, from data access and analysis to presenting the results. You'll learn about
-F# Data and type providers, the process of data analysis with Deedle and R type provider and
+FSharp.Data and type providers, the process of data analysis with Deedle and R type provider and
 the implementation of basic machine learning algorithm with F#.
 
 ### Machine Learning Projects for .NET Developers
@@ -79,7 +79,7 @@ Here are some of the best talks that have been recorded.
    This lecture shows how to access JSON, CSV and World Bank data, combine and analyze the data and visualize the results.
 
  - [**F# and Machine Learning: a winning combination**](https://vimeo.com/97514517) (NDC)<br />
-   Introduction to machine learning with F# and FsLab libraries such as F# Data type providers for easy data access.
+   Introduction to machine learning with F# and FsLab libraries such as FSharp.Data type providers for easy data access.
       
  - [**Mona Lisa, F# and Azure: simple solutions to hard problems**](https://vimeo.com/113597999) (NDC)<br />
    In this talk, we will explore one of the latter, the Mona Lisa Travelling Salesman Problem, and how we used modern tools to tackle it
@@ -97,7 +97,7 @@ Blog posts and articles
 -----------------------
 
 There is an amazing number of great (and also fun) articles and blog posts that demonstrate the power of FsLab.
-If you wrote an article yourself, send us [a pull request and add it](https://github.com/fslaborg/fslaborg.github.io/blob/source/content/resources/index.md)! 
+If you wrote an article yourself, send us [a pull request and add it](https://github.com/fslaborg/fslab.org/blob/source/content/resources/index.md)! 
 
 ### Editor's picks
 
