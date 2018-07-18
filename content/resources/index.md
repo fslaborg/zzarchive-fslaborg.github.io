@@ -18,11 +18,11 @@ to the list!
 Books and reports
 -----------------
 
-### Analyzing and Visualizing Data with F#
+### [Analyzing and Visualizing Data with F#](http://fslab.org/report/)
 
 _Tomas Petricek, O'Reilly, 2015_
 
-<img src="/img/report/cover.png" style="float:right;width:100px;margin:0px 30px 0px 30px" />
+[<img src="/img/report/cover.png" style="float:right;width:100px;margin:0px 30px 0px 30px" />](http://fslab.org/report/)
 
 This report explains many of the key features of the F# language that make it a great tool 
 for data science and machine learning. Real world examples take you through the entire data 
@@ -30,11 +30,11 @@ science workflow with F#, from data access and analysis to presenting the result
 FSharp.Data and type providers, the process of data analysis with Deedle and R type provider and
 the implementation of basic machine learning algorithm with F#.
 
-### Machine Learning Projects for .NET Developers
+### [Machine Learning Projects for .NET Developers](http://www.machine-learning-projects-for-dot-net-developers.com/)
 
 _Mathias Brandewinder, Apress, 2015_
 
-<img src="/img/other/mlprojects.jpg" style="float:right;width:100px;margin:0px 30px 0px 30px" />
+[<img src="/img/other/mlprojects.jpg" style="float:right;width:100px;margin:0px 30px 0px 30px" />](http://www.machine-learning-projects-for-dot-net-developers.com/)
 
 The book shows you how to build smarter .NET applications that learn from data, using simple 
 algorithms and techniques that can be applied to a wide range of real-world problems. You’ll 
