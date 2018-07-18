@@ -70,55 +70,44 @@
 
   
 <div class="first-wrapper banner-spaced banner-wrapper"><div class="container">
-
 <h1><a name="FsLab-Download-a-template-or-get-a-package" class="anchor" href="#FsLab-Download-a-template-or-get-a-package">FsLab <em>Download a template or get a package</em></a></h1>
-
 <p>Getting FsLab is easy! You can download a template or use Paket or NuGet package:</p>
-
 <ul>
 <li><strong>Download a template.</strong> Get a template from GitHub with all the setup you need</li>
 <li><strong>NuGet package.</strong> FsLab is available on NuGet and you can use Paket for best experience</li>
 </ul>
-
 </div></div>
-
 <div class="content-wrapper"><div class="container">
-
 <div class="row">
 <div class="col-md-6">
-
 <h2><a name="Download-a-template" class="anchor" href="#Download-a-template">Download a template</a></h2>
-
 <p>The easiest way to get started is to copy one of the templates that are
 from the <a href="http://github.com/fslaborg/FsLab.Templates">FsLab templates</a>
 repository. The templates work with Visual Studio Code, Visual Studio and other
 F# editors.</p>
-
 <div style="margin:25px 0px 45px 15px">
 <a href="https://github.com/fslaborg/FsLab.Templates/archive/basic.zip" class="btn btn-primary" role="button">
   <strong>FsLab basic template</strong></a>
 <a href="https://github.com/fslaborg/FsLab.Templates/archive/journal.zip" class="btn btn-primary" role="button">
   <strong>FsLab journal template</strong></a>
 </div>
-
 <h3><a name="Using-the-templates" class="anchor" href="#Using-the-templates">Using the templates</a></h3>
-
 <p>The templates use <a href="http://fsprojects.github.io/Paket">Paket</a> for dependency management.
 When you use the templates, you'll need to run Paket to get the dependencies.
 This happens automatically when you build the project, but you can also do it by hand.</p>
-
 <ul>
-<li><p>In the basic template, run <a href="http://fsprojects.github.io/Paket/paket-install.html"><code>paket install</code></a>.
+<li>
+<p>In the basic template, run <a href="http://fsprojects.github.io/Paket/paket-install.html"><code>paket install</code></a>.
 For example, when using mono on Mac, run:</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
-<span class="l">2: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"> <span class="i">mono</span> <span class="o">.</span><span class="i">paket</span><span class="o">/</span><span class="i">paket</span><span class="o">.</span><span class="i">bootstrapper</span><span class="o">.</span><span class="i">exe</span>
- <span class="i">mono</span> <span class="o">.</span><span class="i">paket</span><span class="o">/</span><span class="i">paket</span><span class="o">.</span><span class="i">exe</span> <span class="i">install</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"> <span class="i">mono</span> <span class="o">.</span><span class="i">paket</span><span class="o">/</span><span class="i">paket</span><span class="o">.</span><span class="i">exe</span> <span class="i">install</span>
 </code></pre></td>
 </tr>
-</table></li>
-<li><p>In the journal template you can use build scripts <code>build.sh</code> and <code>build.cmd</code>.
+</table>
+</li>
+<li>
+<p>In the journal template you can use build scripts <code>build.sh</code> and <code>build.cmd</code>.
 The following will process all journals and open them in a web browser:</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
@@ -127,90 +116,72 @@ The following will process all journals and open them in a web browser:</p>
  <span class="o">.</span><span class="o">/</span><span class="i">build</span><span class="o">.</span><span class="i">sh</span> <span class="i">run</span>
 </code></pre></td>
 </tr>
-</table></li>
+</table>
+</li>
 </ul>
-
 <p>This downloads the packages and creates <code>paket.lock</code> file with the version information.
 Once the packages are downloaded, you can open the <code>Tutorial.fsx</code> script and edit it.
 The tempalates are designed to be used from F# Interactive. Select a couple of lines
 of code and use "Alt+Enter" (in Visual Studio), "Ctrl+Enter" (in Xamarin Studio) or
 other command to send the code to F# Interactive.</p>
-
 <h3><a name="FsLab-Basic-template" class="anchor" href="#FsLab-Basic-template">FsLab Basic template</a></h3>
-
 <p>The basic FsLab template is a minimal sample containing a tutorial and Paket references
 as described above. The template works with Xamarin Studio, Visual Studio or via command line.</p>
-
 <ul>
 <li>Download <a href="https://github.com/fslaborg/FsLab.Templates/archive/basic.zip">FsLab basic template</a></li>
 </ul>
-
 <h3><a name="FsLab-Journal-template" class="anchor" href="#FsLab-Journal-template">FsLab Journal template</a></h3>
-
 <p>The FsLab Journal template contains everything as described above, but also adds the
 ability to generate HTML and LaTeX reports from your literate scripts.</p>
-
 <ul>
 <li>Download <a href="https://github.com/fslaborg/FsLab.Templates/archive/journal.zip">FsLab Journal template</a></li>
 <li>Install <a href="https://visualstudiogallery.msdn.microsoft.com/45373b36-2a4c-4b6a-b427-93c7a8effddb">Visual Studio template</a></li>
 </ul>
-
 <p>The template comes with build scripts <code>build.sh</code> and <code>build.cmd</code> that can be used
 as follows:</p>
-
 <ul>
-<li><code>build run</code> generates HTML outputs, opens them in a browser and automatically
-updates them when the source files change</li>
+<li>
+<code>build run</code> generates HTML outputs, opens them in a browser and automatically
+updates them when the source files change
+</li>
 <li><code>build latex</code> generates LaTeX output</li>
 <li><code>build pdf</code> generates LaTeX and also invokes <code>pdflatex</code></li>
 </ul>
-
 </div>
 <div class="col-md-6">
-
 <h2><a name="Reference-a-package" class="anchor" href="#Reference-a-package">Reference a package</a></h2>
-
 <p>It is equally easy to install FsLab using NuGet or using Paket. We recommend
 using <a href="http://fsprojects.github.io/Paket">Paket</a>. This is a bit more work at
 the beginning, but it will save you time when updating to new versions later!</p>
-
 <div style="margin:25px 0px 45px 15px">
 <a href="https://www.nuget.org/packages/FsLab/" class="btn btn-primary" role="button">
   <strong>View FsLab on NuGet</strong></a>
   <a href="https://www.nuget.org/packages/FsLab/" class="btn btn-primary" role="button">
     <strong>FsLab.Runner on NuGet</strong></a>
 </div>
-
 <h3><a name="Referencing-FsLab-using-NuGet" class="anchor" href="#Referencing-FsLab-using-NuGet">Referencing FsLab using NuGet</a></h3>
-
 <p>FsLab is <a href="https://www.nuget.org/packages/FsLab/">available on NuGet</a> as <code>FsLab</code>.
 The <code>FsLab.Runner</code> package can be used to re-implement the functionality of the
 FsLab Journal template.</p>
-
 <p>To use it directly, create a new project (F# Tutorial is a good start in Visual
 Studio and Xamarin Studio). Then add refernece to the FsLab NuGet package and
 wait until all components are downloaded.</p>
-
 <p>Finally add a new script file, say <code>Tutorial.fsx</code> and load <code>FsLab.fsx</code> using the
 following command (the version will differ, so you'll have to check the created
 <code>packages</code> directory; when the project is in a sub-folder you'll also need
 to use <code>../packages</code>).</p>
-
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#load</span> <span class="s">&quot;packages/FsLab.0.1.4/FsLab.fsx&quot;</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">FsLab</span>
+<span class="k">open</span> <span class="i">FsLab</span>
 </code></pre></td>
 </tr>
 </table>
-
 <h3><a name="Referencing-FsLab-using-Paket" class="anchor" href="#Referencing-FsLab-using-Paket">Referencing FsLab using Paket</a></h3>
-
 <p>When referencing FsLab using Paket, you'll need to <a href="https://github.com/fsprojects/Paket/releases/latest">download the latest version of
 Paket</a> and create a file called
 <code>paket.dependencies</code> with the following contents:</p>
-
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
@@ -219,37 +190,29 @@ Paket</a> and create a file called
 
 nuget FsLab
 </code></pre></td></tr></table>
-
 <p>This specifies that Paket should install the <code>FsLab</code> package for you. Then
 run the following command (drop <code>mono</code> on Windows):</p>
-
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip"><code lang="text">mono paket.exe install
 </code></pre></td></tr></table>
-
 <p>The typical usage is to put <code>paket.exe</code> into a sub-folder called <code>.paket</code>, but this
 is completely up to you. Paket will drop the version numbers from folder names, so
 you can reference FsLab as follows in your scripts:</p>
-
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#load</span> <span class="s">&quot;packages/FsLab/FsLab.fsx&quot;</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 2)" onmouseover="showTip(event, 'fs1', 2)" class="i">FsLab</span>
+<span class="k">open</span> <span class="i">FsLab</span>
 </code></pre></td>
 </tr>
 </table>
-
 <p>This creates <code>paket.lock</code> file with the information about installed versions.
 Paket makes it easy to update to the latest version of FsLab. Just run <code>paket update</code>.</p>
-
 </div>
 </div>
-
 </div></div>
 
-<div class="tip" id="fs1">namespace FsLab</div>
 
 
   <footer>
