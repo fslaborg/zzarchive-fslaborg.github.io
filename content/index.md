@@ -79,7 +79,7 @@
               <img src="img/carousel/report.png" style="height:220px;margin-right:20px;float:left;" class="img-xs" />
               <p>
                 Data analysis scripts using FsLab can be compiled and deployed into cross-platform web and cloud-hosted production
-                environments, including [Jupyter notebooks](https://notebooks.azure.com/) and [cloud services](https://safe-stack.github.io/).
+                environments, including <a href="https://notebooks.azure.com/">Jupyter notebooks</a> and <a href="https://safe-stack.github.io/">SAFE-Stack</a> cloud services.
               </p>
               <p>
                 Markdown scripts and notebooks provide environments comfortable for scientists,
@@ -112,22 +112,21 @@
       <div class="col-xs-12 col-md-4 col-sm-6">
         <h2><span><i class="fa fa-comments"></i></span> Open-source</h2>
         <p>
-          All libraries included in FsLab are licensed under OSI-approved licenses
-          and have an active community of contributors on GitHub.
+          All packages included in FsLab have OSI-approved licenses with an active community of contributors on GitHub.
         </p>
       </div>
       <div class="col-xs-12 col-md-4 col-sm-6">
         <h2><span><i class="fa fa-cubes"></i></span> Cross-platform</h2>
         <p>
-          The packages in FsLab run on Mac, Linux and Windows. You can use them with Emacs,
-          Visual Studio Code, Visual Studio or any other F#-enabled editor.
+          The FsLab packages run on Mac, Linux and Windows. You can use them with Emacs,
+          VSCode, Visual Studio or other F#-enabled editors.
         </p>
       </div>
       <div class="col-xs-12 col-md-4 col-sm-6">
         <h2><span><i class="fa fa-line-chart"></i></span> Interactive</h2>
         <p>
-          FsLab encourages an interactive development style. This makes it easy to explore the data
-          and experiment with different analyses.
+          FsLab can be used with scripts and notebooks. This makes it easy to explore the data,
+          experiment with different analyses and share the results.
         </p>
       </div>
       <div class="col-xs-12 col-md-4 col-sm-6">
@@ -140,17 +139,15 @@
       <div class="col-xs-12 col-md-4 col-sm-6">
         <h2><span><i class="fa fa-clock-o" style="left:9px"></i></span> Script to production</h2>
         <p>
-          F# code is type-inferred and efficiently compiled.
-          Once you're done with your data analysis, you can deploy it
-          as a production-quality implementation without rewriting it.
+          F# code is type-inferred and efficiently compiled. You can often deploy your
+          analytics without rewriting it.
         </p>
       </div>
       <div class="col-xs-12 col-md-4 col-sm-6">
         <h2><span><i class="fa fa-rocket"></i></span> Web-ready, Cloud-ready</h2>
         <p>
-          F# is web-ready. It runs on multi-core and you can create [cloud-hosted Jupyter notebooks](https://notebooks.azure.com/) or
-          deploy cloud-hosted scalable services with <a href="https://docs.microsoft.com/dotnet/fsharp/using-fsharp-on-azure/">Azure</a> and
-          <a href="https://safe-stack.github.io//">SAFE-Stack</a>.
+          With F# you can create web-hosted Jupyter notebooks or
+          deploy scalable cloud services with Azure and SAFE-Stack.
         </p>
       </div>
     </div>
@@ -280,10 +277,10 @@
         </ul>
       </div>
       <div class="col-md-6">
-        <h3><span><i class="fa fa-code"></i></span> <a href="https://github.com/fsprojects/IfSharp#ifsharp-jupyter-and-f-azure-notebooks">Jupyter notebooks</a><em>Use familiar tools</em></h3>
+        <h3><span><i class="fa fa-code"></i></span> <a href="https://github.com/fsprojects/IfSharp#ifsharp-jupyter-and-f-azure-notebooks">Jupyter Notebooks</a><em>Use familiar tools</em></h3>
         <ul>
           <li>Use FsLab in <a href="https://github.com/fsprojects/IfSharp#ifsharp-jupyter-and-f-azure-notebooks">iFSharp Jupyter notebooks</a></li>
-          <li><a href="https://notebooks.azure.com/">Host F# Jupyter Notebooks on Azure</a></li>
+          <li><a href="https://notebooks.azure.com/">Host iFSharp Jupyter Notebooks on Azure</a></li>
         </ul>
       </div>
     </div>
