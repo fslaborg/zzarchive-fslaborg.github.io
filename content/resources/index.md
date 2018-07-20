@@ -18,11 +18,11 @@ to the list!
 Books and reports
 -----------------
 
-### [Analyzing and Visualizing Data with F#](http://fslab.org/report/)
+### [Analyzing and Visualizing Data with F#](https://fslab.org/report/)
 
 _Tomas Petricek, O'Reilly, 2015_
 
-[<img src="/img/report/cover.png" style="float:right;width:100px;margin:0px 30px 0px 30px" />](http://fslab.org/report/)
+[<img src="/img/report/cover.png" style="float:right;width:100px;margin:0px 30px 0px 30px" />](https://fslab.org/report/)
 
 This report explains many of the key features of the F# language that make it a great tool 
 for data science and machine learning. Real world examples take you through the entire data 

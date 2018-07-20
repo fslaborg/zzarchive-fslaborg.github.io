@@ -9,7 +9,7 @@ open FSharp.Charting
 
 // --------------------------------------------------------------------------------------
 // Implements Markdown formatters for common FsLab things - including Deedle series
-// and frames, F# Charting charts, System.Image values and Math.NET matrices & vectors
+// and frames, FSharp.Charting charts, System.Image values and Math.NET matrices & vectors
 // --------------------------------------------------------------------------------------
 
 // How many columns and rows from frame should be rendered

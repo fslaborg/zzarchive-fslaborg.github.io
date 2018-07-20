@@ -12,14 +12,14 @@
     <div class="carousel-inner" role="listbox">
       <div class="item active">
         <div class="container">
-          <h1>Data science packages for F# <em>Powerful &amp; cross-platform</em></h1>
+          <h1>Data science packages for F#</h1>
           <div class="row">
             <div class="col-sm-4 ta-right img-md" style="padding-left:0px;">
               <img src="img/carousel/cc.png" style="height:200px;margin-right:20px" />
             </div><div class="col-sm-8">
               <img src="img/carousel/cc.png" style="height:160px; float:left; margin:0px 10px 20px 0px;" class="img-xs" />
               <p>
-                FsLab is a curated collection of F# packages for data-science. Together with your editor
+                FsLab is a curated collection of open source F# packages for data-science. Together with your editor or Jupyter notebook
                 these packages allow you to rapidly develop scalable, high-performance analytics and visualizations
                 using succinct, type-safe, production-ready code.
               </p>
@@ -33,11 +33,11 @@
       </div>
       <div class="item">
         <div class="container">
-          <h1>Hassle-free data access <em>Easy data access with type providers</em></h1>
+          <h1>Hassle-free data access</h1>
           <div class="row">
             <div class="col-sm-5">
               <p>
-                FsLab includes the <strong>FSharp.Data type providers</strong> to smoothly access data from HTML, CSV files,
+                FsLab includes the <strong>FSharp.Data</strong> to smoothly access data from HTML, CSV files,
                 JSON web requests and XML-based web services.
               </p>
               <p>
@@ -52,7 +52,7 @@
       </div>
       <div class="item">
         <div class="container">
-          <h1>Use what you know <em>Integrate with thousands of packages</em></h1>
+          <h1>Integrate with thousands of packages</h1>
           <div class="row">
             <div class="col-sm-5">
               <p>
@@ -75,14 +75,14 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-8">
-              <h1 style="margin-top:10px;">Production-Ready <em>Create scripts and reports and deploy in production</em></h1>
+              <h1 style="margin-top:10px;">Production-Ready</h1>
               <img src="img/carousel/report.png" style="height:220px;margin-right:20px;float:left;" class="img-xs" />
               <p>
-                Data analysis scripts using FsLab can be compiled and deployed into cross-platform production
-                environments.
+                Data analysis scripts using FsLab can be compiled and deployed into cross-platform web and cloud-hosted production
+                environments, including [Jupyter notebooks](https://notebooks.azure.com/) and [cloud services](https://safe-stack.github.io/).
               </p>
               <p>
-                Markdown scripts provide an environment comfortable for scientists,
+                Markdown scripts and notebooks provide environments comfortable for scientists,
                 data analysts and developers, producing print-ready reports with embedded
                 charts, code snippets and mathematics using HTML or PDF.
               </p>
@@ -110,31 +110,17 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-4 col-sm-6">
-        <h2><span><i class="fa fa-cubes"></i></span> Cross-platform</h2>
-        <p>
-          The FsLab packages run on Mac, Linux and Windows. You can use it with Emacs,
-          Visual Studio Code, Visual Studio or any other F#-enabled editor.
-        </p>
-      </div>
-      <div class="col-xs-12 col-md-4 col-sm-6">
-        <h2><span><i class="fa fa-clock-o" style="left:9px"></i></span> Production-ready</h2>
-        <p>
-          Once you're done with the initial data analysis, you can turn your code
-          into production-quality implementation without rewriting it.
-        </p>
-      </div>
-      <div class="col-xs-12 col-md-4 col-sm-6">
-        <h2><span><i class="fa fa-cogs"></i></span> Powered by F#</h2>
-        <p>
-          F# is a simple but powerful language that
-          analysts, data scientists and software developers all understand.
-        </p>
-      </div>
-      <div class="col-xs-12 col-md-4 col-sm-6">
         <h2><span><i class="fa fa-comments"></i></span> Open-source</h2>
         <p>
           All libraries included in FsLab are licensed under OSI-approved licenses
           and have an active community of contributors on GitHub.
+        </p>
+      </div>
+      <div class="col-xs-12 col-md-4 col-sm-6">
+        <h2><span><i class="fa fa-cubes"></i></span> Cross-platform</h2>
+        <p>
+          The packages in FsLab run on Mac, Linux and Windows. You can use them with Emacs,
+          Visual Studio Code, Visual Studio or any other F#-enabled editor.
         </p>
       </div>
       <div class="col-xs-12 col-md-4 col-sm-6">
@@ -145,11 +131,26 @@
         </p>
       </div>
       <div class="col-xs-12 col-md-4 col-sm-6">
-        <h2><span><i class="fa fa-rocket"></i></span> Cloud-scale</h2>
+        <h2><span><i class="fa fa-cogs"></i></span> Powered by F#</h2>
         <p>
-          F# code is type-inferred and efficiently compiled. It runs on multi-core and you can
-          deploy and scale with <a href="https://docs.microsoft.com/dotnet/fsharp/using-fsharp-on-azure/">Azure</a> and
-          other cloud platforms.
+          F# is a simple but powerful language that
+          analysts, data scientists and software developers can all understand.
+        </p>
+      </div>
+      <div class="col-xs-12 col-md-4 col-sm-6">
+        <h2><span><i class="fa fa-clock-o" style="left:9px"></i></span> Script to production</h2>
+        <p>
+          F# code is type-inferred and efficiently compiled.
+          Once you're done with your data analysis, you can deploy it
+          as a production-quality implementation without rewriting it.
+        </p>
+      </div>
+      <div class="col-xs-12 col-md-4 col-sm-6">
+        <h2><span><i class="fa fa-rocket"></i></span> Web-ready, Cloud-ready</h2>
+        <p>
+          F# is web-ready. It runs on multi-core and you can create [cloud-hosted Jupyter notebooks](https://notebooks.azure.com/) or
+          deploy cloud-hosted scalable services with <a href="https://docs.microsoft.com/dotnet/fsharp/using-fsharp-on-azure/">Azure</a> and
+          <a href="https://safe-stack.github.io//">SAFE-Stack</a>.
         </p>
       </div>
     </div>
@@ -169,7 +170,7 @@
             Two talks showing how to use FsLab together with <a href="http://www.m-brace.net/">M-Brace</a> for scalable data analysis, both locally and in the cloud.
           </li>
           <li>
-            <a href="https://vimeo.com/144816160">Putting fun into data analysis with F#</a> &nbsp; (Øredev 2015)<br />
+            <a href="https://vimeo.com/144816160">Putting fun into data analysis with F#</a> &nbsp; (Øredev)<br />
             This talk shows how to analyze social network data from Twitter looking at community dynamics and sentiment analysis.
           </li>
           <li>
@@ -224,85 +225,66 @@
     </div>
     <div class="row components">
       <div class="col-md-6">
-        <h3><span><i class="fa fa-database"></i></span> FSharp.Data <em>First-class data access</em></h3>
+        <h3><span><i class="fa fa-database"></i></span> <a href="https://fsharp.github.io/FSharp.Data/">FSharp.Data</a> <em>First-class data access</em></h3>
         <ul>
-          <li>Use language that understands external data sources</li>
           <li>Access JSON, XML, CSV and HTML</li>
           <li>Get auto-completion based on a sample document</li>
         </ul>
-        <a href="http://fsharp.github.io/FSharp.Data/" class="btn fst btn-primary" role="button">FSharp.Data homepage</a>
       </div>
       <div class="col-md-6">
-        <h3><span><i class="fa fa-bars"></i></span> Deedle <em>Interactive data exploration</em></h3>
+        <h3><span><i class="fa fa-bars"></i></span> <a href="https://fslab.org/Deedle/">Deedle</a> <em>Data frames</em></h3>
         <ul>
           <li>Data frame and series library inspired by pandas</li>
-          <li>Quickly explore data &amp; build efficient compiled code</li>
           <li>Automatic alignment, missing data handling &amp; more</li>
         </ul>
-        <a href="http://fslab.org/Deedle/tutorial.html" class="btn fst btn-primary" role="button">Deedle in 10 minutes</a>
-        <a href="http://fslab.org/Deedle/" class="btn btn-primary" role="button">Homepage</a>
       </div>
     </div>
     <div class="row components">
       <div class="col-md-6">
-        <h3><span><i class="fa fa-rocket"></i></span> R Provider <em>Professional stats packages</em></h3>
+        <h3><span><i class="fa fa-rocket"></i></span> <a href="https://fslab.org/RProvider">R Interop</a> <em>Access R packages</em></h3>
         <ul>
-          <li>Access over 6000 professional R packages</li>
-          <li>Pass data frames and time-series to R easily</li>
-          <li>Get auto-completion on R functions &amp; parameters</li>
+          <li>Access over 6000 R packages with auto-complete</li>
+          <li>Pass data frames and time-series to/from R</li>
         </ul>
-        <a href="http://fslab.org/RProvider" class="btn fst btn-primary" role="button">R provider homepage</a>
       </div>
       <div class="col-md-6">
-        <h3><span><i class="fa fa-calculator"></i></span> Math.NET <em>Fast numerical calculations</em></h3>
+        <h3><span><i class="fa fa-calculator"></i></span> <a href="https://numerics.mathdotnet.com">Math.NET Numerics</a> <em>Fast numerics</em></h3>
         <ul>
-          <li>Linear algebra, statistics and probability</li>
-          <li>Optimization, transformations, curve fitting</li>
+          <li>Linear algebra, statistics, probability and more</li>
           <li>Switch to parallel or native MKL implementation</li>
         </ul>
-        <a href="http://numerics.mathdotnet.com" class="btn fst btn-primary" role="button">Math.NET Numerics</a>
       </div>
     </div>
     <div class="row components">
       <div class="col-md-6">
-        <h3><span><i class="fa fa-bar-chart"></i></span> XPlot <em>Powerful HTML5 charting</em></h3>
+        <h3><span><i class="fa fa-bar-chart"></i></span> <a href="https://fslab.org/XPlot/">XPlot</a> <em>For HTML5 charting</em></h3>
         <ul>
-          <li>Create HTML5 charts with easy-to-use library</li>
-          <li>Choose between Google Charts and Plot.ly</li>
+          <li>Create HTML5 charts with Google Charts and Plot.ly</li>
           <li>Lines, bars, pies, bubbles, maps and much more!</li>
         </ul>
-        <a href="https://fslab.org/XPlot/" class="btn fst btn-primary" role="button">XPlot homepage</a>
       </div>
       <div class="col-md-6">
-        <h3><span><i class="fa fa-line-chart"></i></span> F# Charting <em>For desktop charting</em></h3>
+        <h3><span><i class="fa fa-line-chart"></i></span> <a href="https://fslab.org/FSharp.Charting/">FSharp.Charting</a> <em>For .NET  charting</em></h3>
         <ul>
           <li>Rich, efficient charts for desktop apps</li>
           <li>Create animated live and incremental charts</li>
-          <li>Easily integrates with .NET applications</li>
         </ul>
-        <a href="http://fslab.org/FSharp.Charting/" class="btn fst btn-primary" role="button">F# Charting homepage</a>
       </div>
     </div>
     <div class="row components">
       <div class="col-md-6">
-        <h3><span><i class="fa fa-flask"></i></span> FsLab <em>For integrated experience</em></h3>
+        <h3><span><i class="fa fa-code"></i></span> <a href="https://fsprojects.github.io/FSharp.Formatting/literate.html">Literate F#</a><em>Produce LaTeX and HTML reports</em></h3>
         <ul>
-          <li>One easy to install package with all you need</li>
-          <li>Data access, analysis and visualization</li>
-          <li>Everything works well together, no versioning hell</li>
-        </ul>
-        <a href="https://github.com/fslaborg/FsLab.Templates" class="btn fst btn-primary" role="button">FsLab templates</a>
-        <a href="https://visualstudiogallery.msdn.microsoft.com/45373b36-2a4c-4b6a-b427-93c7a8effddb" class="btn btn-primary" role="button">Visual Studio template</a>
-      </div>
-      <div class="col-md-6">
-        <h3><span><i class="fa fa-code"></i></span> Literate F#<em>Produce LaTeX and HTML reports</em></h3>
-        <ul>
-          <li>Mix F# code and Markdown annotations in one file</li>
-          <li>Embedded equations, tables, charts, R graphics and more</li>
+          <li>Mix F# code, markdown, equations, tables, charts and more</li>
           <li>Produce high-quality LaTeX, PDF or HTML outputs</li>
         </ul>
-        <a href="https://fsprojects.github.io/FSharp.Formatting/literate.html" class="btn fst btn-primary" role="button">Introduction</a>
-        <a href="https://fsprojects.github.io/FSharp.Formatting/evaluation.html" class="btn btn-primary" role="button">Embedding results</a>
+      </div>
+      <div class="col-md-6">
+        <h3><span><i class="fa fa-code"></i></span> <a href="https://github.com/fsprojects/IfSharp#ifsharp-jupyter-and-f-azure-notebooks">Jupyter notebooks</a><em>Use familiar tools</em></h3>
+        <ul>
+          <li>Use FsLab in <a href="https://github.com/fsprojects/IfSharp#ifsharp-jupyter-and-f-azure-notebooks">iFSharp Jupyter notebooks</a></li>
+          <li><a href="https://notebooks.azure.com/">Host F# Jupyter Notebooks on Azure</a></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -311,13 +293,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <a href="http://fsharp.github.io/FSharp.Data/"><img src="/img/logos/fsharpdata.png" /></a>
+        <a href="https://fsharp.github.io/FSharp.Data/"><img src="/img/logos/fsharpdata.png" /></a>
         <a href="https://fslab.org/XPlot/"><img src="/img/logos/xplot.png" /></a>
-        <a href="http://fslab.org/Deedle/"><img src="/img/logos/deedle.png" /></a>
-        <a href="http://fslab.org/RProvider"><img src="/img/logos/rprovider.png" /></a>
-        <a href="http://numerics.mathdotnet.com"><img src="/img/logos/mathnet.png" /></a>
+        <a href="https://fslab.org/Deedle/"><img src="/img/logos/deedle.png" /></a>
+        <a href="https://fslab.org/RProvider"><img src="/img/logos/rprovider.png" /></a>
+        <a href="https://numerics.mathdotnet.com"><img src="/img/logos/mathnet.png" /></a>
         <a href="https://fsprojects.github.io/FSharp.Formatting"><img src="/img/logos/fsformatting.png" /></a>
-        <a href="http://fslab.org"><img src="/img/logos/fslab.png" /></a>
+        <a href="https://fslab.org"><img src="/img/logos/fslab.png" /></a>
       </div>
     </div>
   </div>
