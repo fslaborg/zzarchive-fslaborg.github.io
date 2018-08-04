@@ -20,14 +20,14 @@ Download a template
 -------------------
 
 The easiest way to get started is to copy one of the templates that are
-from the [FsLab templates](http://github.com/fslaborg/FsLab.Templates)
+from the [FsLab templates](http://github.com/fslaborg/FsLab)
 repository. The templates work with Visual Studio Code, Visual Studio and other
 F# editors.
 
 <div style="margin:25px 0px 45px 15px">
-<a href="https://github.com/fslaborg/FsLab.Templates/archive/basic.zip" class="btn btn-primary" role="button">
+<a href="https://github.com/fslaborg/FsLab/archive/basic.zip" class="btn btn-primary" role="button">
   <strong>FsLab basic template</strong></a>
-<a href="https://github.com/fslaborg/FsLab.Templates/archive/journal.zip" class="btn btn-primary" role="button">
+<a href="https://github.com/fslaborg/FsLab/archive/journal.zip" class="btn btn-primary" role="button">
   <strong>FsLab journal template</strong></a>
 </div>
 
@@ -59,14 +59,14 @@ other command to send the code to F# Interactive.
 The basic FsLab template is a minimal sample containing a tutorial and Paket references
 as described above. The template works with Xamarin Studio, Visual Studio or via command line.
 
- - Download [FsLab basic template](https://github.com/fslaborg/FsLab.Templates/archive/basic.zip)
+ - Download [FsLab basic template](https://github.com/fslaborg/FsLab/archive/basic.zip)
 
 ### FsLab Journal template
 
 The FsLab Journal template contains everything as described above, but also adds the
 ability to generate HTML and LaTeX reports from your literate scripts.
 
- - Download [FsLab Journal template](https://github.com/fslaborg/FsLab.Templates/archive/journal.zip)
+ - Download [FsLab Journal template](https://github.com/fslaborg/FsLab/archive/journal.zip)
  - Install [Visual Studio template](https://visualstudiogallery.msdn.microsoft.com/45373b36-2a4c-4b6a-b427-93c7a8effddb)
 
 The template comes with build scripts `build.sh` and `build.cmd` that can be used
