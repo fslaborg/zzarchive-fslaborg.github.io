@@ -72,27 +72,33 @@
 <div class="first-wrapper content-wrapper"><div class="container">
 <div class="row"><div class="col-md-9">
 <h1><a name="FsLab-Download-a-template-or-get-a-package" class="anchor" href="#FsLab-Download-a-template-or-get-a-package">FsLab <em>Download a template or get a package</em></a></h1>
-<p>The easiest way to get started is using <code>dotnet new</code>.  If you con't have it
-you can install the .NET SDK <a href="https://www.microsoft.com/net/download">here</a>.  Then use:</p>
+<p>Getting FsLab is easy! You can download a template or use Paket or NuGet package:
+- <strong>Use a template.</strong> Get a template from GitHub with all the setup you need</p>
+<ul>
+<li>
+<strong>Reference a  package.</strong> FsLab is available on NuGet and you can use Paket for best experience
+---
+<div class="row">
+<div class="col-md-6">
+</li>
+</ul>
+<h2><a name="Use-a-template" class="anchor" href="#Use-a-template">Use a template</a></h2>
+<p>First <a href="https://www.microsoft.com/net/download">install the .NET SDK</a> and, if on Linux, <a href="https://www.mono-project.com/docs/getting-started/install/">install Mono</a>.
+Then use:</p>
 <pre>
 dotnet new -i FsLab.Templates
 dotnet new fslab-journal -lang F# -n Experiment1
+cd Experiment1
 </pre>
-<p>This creates a new project from the <a href="http://github.com/fslaborg/FsLab">FsLab templates</a>.
-The templates work on Linux, OSX and Windows, and you can
+<p>This creates a new journal. The templates work on Linux, OSX and Windows, and you can
 edit with Emacs, VSCode, Visual Studio, Vim and other F# editors.</p>
 <p>You can now generate HTML and show it:</p>
 <pre>
-cd Experiment1
 build html
-</pre>
-<p>Use <code>build show</code> to automatically show it:</p>
-<pre>
-build show
 </pre>
 <p>Use <code>build run</code> to both show and watch for changes:</p>
 <pre>
-build run  (watches for changes)
+build run
 </pre>
 <p>You can now edit <code>Experiment1.fsx</code> or open <code>Experiment1.fsproj</code>.</p>
 <p>The templates are designed to be used from F# Interactive. Select a couple of lines
