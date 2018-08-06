@@ -1,11 +1,11 @@
 (**
-FsLab _Download a template or get a package_
+FsLab _Use a template or get a package_
 ============================================
 
 Getting FsLab is easy! You can download a template or use Paket or NuGet package:
 
- - **Download a template.** Get a template from GitHub with all the setup you need
- - **NuGet package.** FsLab is available on NuGet and you can use Paket for best experience
+- **Use a template.** Get a template from GitHub with all the setup you need
+- **Get a package.** FsLab is available on NuGet and you can use Paket for best experience
 
 ---
 
@@ -16,22 +16,53 @@ Getting FsLab is easy! You can download a template or use Paket or NuGet package
 #I "../../"
 (**
 
-Download a template
+Use a template
 -------------------
 
-The easiest way to get started is to copy one of the templates that are
-from the [FsLab templates](http://github.com/fslaborg/FsLab)
-repository. The templates work with Visual Studio Code, Visual Studio and other
-F# editors.
+First [install the .NET SDK](https://www.microsoft.com/net/download) and, if on Linux, [install Mono](https://www.mono-project.com/docs/getting-started/install/).
+Then use:
 
-<div style="margin:25px 0px 45px 15px">
-<a href="https://github.com/fslaborg/FsLab/archive/basic.zip" class="btn btn-primary" role="button">
-  <strong>FsLab basic template</strong></a>
-<a href="https://github.com/fslaborg/FsLab/archive/journal.zip" class="btn btn-primary" role="button">
-  <strong>FsLab journal template</strong></a>
+<pre>
+dotnet new -i FsLab.Templates
+dotnet new fslab-journal -lang F# -n Experiment1
+cd Experiment1
+</pre>
+
+This creates a new journal. The templates work on Linux, OSX and Windows, and you can
+edit with Emacs, VSCode, Visual Studio, Vim and other F# editors.
+
+You can now generate HTML and show it:
+
+<pre>
+build html
+</pre>
+
+Use `build run` to both show and watch for changes:
+
+<pre>
+build run
+</pre>
+
+You can now edit `Experiment1.fsx` or open `Experiment1.fsproj`.
+
+The templates are designed to be used from F# Interactive. Select a couple of lines
+of code and use "Alt+Enter" (in Visual Studio), "Ctrl+Enter" (in VSCode) or
+other command to send the code to F# Interactive.
+
+The template comes with build scripts `build.sh` and `build.cmd` that can be used
+as follows:
+
+ - `build run` generates HTML outputs, opens them in a browser and automatically
+    updates them when the source files change
+ - `build show` generates HTML and shows it
+ - `build run` generates HTML, shows it and watches for changes
+ - `build latex` generates LaTeX output
+ - `build pdf` generates LaTeX and also invokes `pdflatex`
+
 </div>
+<div class="col-md-6">
 
-### Using the templates
+### Going Deeper
 
 The templates use [Paket](http://fsprojects.github.io/Paket) for dependency management.
 When you use the templates, you'll need to run Paket to get the dependencies.
@@ -48,60 +79,12 @@ This happens automatically when you build the project, but you can also do it by
         chmod +x build.sh
         ./build.sh run
 
-This downloads the packages and creates `paket.lock` file with the version information.
-Once the packages are downloaded, you can open the `Tutorial.fsx` script and edit it.
-The tempalates are designed to be used from F# Interactive. Select a couple of lines
-of code and use "Alt+Enter" (in Visual Studio), "Ctrl+Enter" (in Xamarin Studio) or
-other command to send the code to F# Interactive.
-
-### FsLab Basic template
-
-The basic FsLab template is a minimal sample containing a tutorial and Paket references
-as described above. The template works with Xamarin Studio, Visual Studio or via command line.
-
- - Download [FsLab basic template](https://github.com/fslaborg/FsLab/archive/basic.zip)
-
-### FsLab Journal template
-
-The FsLab Journal template contains everything as described above, but also adds the
-ability to generate HTML and LaTeX reports from your literate scripts.
-
- - Download [FsLab Journal template](https://github.com/fslaborg/FsLab/archive/journal.zip)
- - Install [Visual Studio template](https://visualstudiogallery.msdn.microsoft.com/45373b36-2a4c-4b6a-b427-93c7a8effddb)
-
-The template comes with build scripts `build.sh` and `build.cmd` that can be used
-as follows:
-
- - `build run` generates HTML outputs, opens them in a browser and automatically
-    updates them when the source files change
- - `build latex` generates LaTeX output
- - `build pdf` generates LaTeX and also invokes `pdflatex`
-
-</div>
-<div class="col-md-6">
-
-Reference a package
--------------------
-
-It is equally easy to install FsLab using NuGet or using Paket. We recommend
-using [Paket](http://fsprojects.github.io/Paket). This is a bit more work at
-the beginning, but it will save you time when updating to new versions later!
-
-<div style="margin:25px 0px 45px 15px">
-<a href="https://www.nuget.org/packages/FsLab/" class="btn btn-primary" role="button">
-  <strong>View FsLab on NuGet</strong></a>
-  <a href="https://www.nuget.org/packages/FsLab/" class="btn btn-primary" role="button">
-    <strong>FsLab.Runner on NuGet</strong></a>
-</div>
-
 ### Referencing FsLab using NuGet
 
 FsLab is [available on NuGet](https://www.nuget.org/packages/FsLab/) as `FsLab`.
-The `FsLab.Runner` package can be used to re-implement the functionality of the
-FsLab Journal template.
 
 To use it directly, create a new project (F# Tutorial is a good start in Visual
-Studio and Xamarin Studio). Then add refernece to the FsLab NuGet package and
+Studio and VSCode). Then add reference to the FsLab NuGet package and
 wait until all components are downloaded.
 
 Finally add a new script file, say `Tutorial.fsx` and load `FsLab.fsx` using the
