@@ -45,7 +45,7 @@
                 and time-series data.
               </p>
             </div><div class="col-sm-7 ta-left-center">
-              <img src="img/carousel/wb-rprovider.png" style="margin-top:15px" />
+              <img src="img/carousel/csv.png" style="margin-top:15px" />
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@
                 Thousands more packages are available on <em>nuget.org</em>.
               </p>
             </div><div class="col-sm-7 ta-left-center">
-              <img src="img/carousel/csv.png" style="margin-top:15px" />
+              <img src="img/carousel/wb-rprovider.png" style="margin-top:15px" />
             </div>
           </div>
         </div>
